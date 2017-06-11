@@ -1,0 +1,17 @@
+{
+  "name": "packet39",
+  "version": "1.0.0",
+  "description": "Website for Packet39",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShacharWeis/ShacharWeis.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShacharWeis/ShacharWeis.github.io/issues"
+  },
+  "homepage": "https://github.com/ShacharWeis/ShacharWeis.github.io#readme"
+}
