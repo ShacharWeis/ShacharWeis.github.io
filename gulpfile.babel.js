@@ -3,10 +3,15 @@
 import gulp from "gulp";
 import requireDir from "require-dir";
 import sequence from "run-sequence";
+import yaml from "js-yaml";
 
 requireDir('./tasks', { recurse: true });
 
-let tasks = ['sass', 'javascript', 'start'];
+yaml.safeLoad('./build.yml', (file) => {
+    console.log(file);
+});
+
+let tasks = ['sass', 'browserify', 'start'];
 
 gulp.task('default', () => {
     sequence( tasks );

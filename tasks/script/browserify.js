@@ -2,7 +2,7 @@
 
 import gulp from "gulp";
 
-const task = "javascript";
+const task = "browserify";
 
 gulp.task(task, () => {
    console.log(task);

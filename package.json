@@ -25,6 +25,7 @@
     "eslint": "^3.19.0",
     "eslint-plugin-compat": "^1.0.3",
     "gulp": "^3.9.1",
+    "js-yaml": "^3.8.4",
     "require-dir": "^0.3.2",
     "run-sequence": "^1.2.2"
   },
