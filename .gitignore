@@ -2,3 +2,5 @@ node_modules
 sass_cache
 .idea
 .DS_store
+
+/public/
