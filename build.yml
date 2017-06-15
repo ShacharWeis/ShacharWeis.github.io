@@ -1,5 +1,0 @@
-tasks:
-  - style:
-    - sass : /src/assets/sass
-  - script:
-    - browserify : /src/assets/js
