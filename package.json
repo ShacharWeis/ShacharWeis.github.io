@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "gulp",
-    "dev": "cross-env NODE_ENV=development npm run build",
+    "watch": "gulp watch",
+    "dev": "cross-env NODE_ENV=development npm run watch",
     "prod": "cross-env NODE_ENV=production npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,6 +32,7 @@
     "cross-env": "^5.0.1",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
+    "eslint": "^4.0.0",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^3.3.0",
@@ -40,16 +42,68 @@
     "gulp-sass": "^3.1.0",
     "gulp-sass-bulk-import": "^1.0.1",
     "gulp-uglify": "^3.0.0",
+    "imagemin-jpegoptim": "^5.1.0",
     "node-notifier": "^5.1.2",
-    "postcss-flexibility": "^2.0.0",
     "postcss-normalize": "^3.0.0",
     "run-sequence": "^1.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {},
-  "browserslist": [
-    "> 2%",
-    "last 2 versions"
-  ]
+  "browserslist": {
+    "production": [
+      "> 2%",
+      "last 3 versions",
+      "not IE < 11"
+    ],
+    "development": [
+      "last 2 versions",
+      "not IE <= 11"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "indent": [
+        "error",
+        4
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "es2015",
+      "stage-1"
+    ]
+  }
 }

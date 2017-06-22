@@ -1,71 +1,138 @@
 'use strict';
 
 // Core Node
+
 // Core Gulp
-import gulp from "gulp";
+import gulp from 'gulp';
+
+// Other Tools
+import notifier from 'node-notifier';
+import newer from 'gulp-newer';
 
 // Style Processing
+import sass from 'gulp-sass';
+import sassGlob from 'gulp-sass-bulk-import';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import normalize from 'postcss-normalize';
 
 // Javascript Processing
 
 // Image Processing
+import imagemin from 'gulp-imagemin';
+import imageminJpegoptim from 'imagemin-jpegoptim';
 
 // Template Processing
 
-// function emitLog(stage, err) {
-//     let object = {
-//         title: 'COMPLETE: ' + stage,
-//         message: 'The ' + stage + ' task is complete'
-//     };
-//     if (err) {
-//         object.title = 'ERROR: ' + stage;
-//         object.message = 'There was an error within ' + stage;
-//         console.log(err);
-//     }
-//     notifier.notify(object);
-// }
+const env = process.env.NODE_ENV; // eslint-disable-line
+const paths = {
+    'src': {
+        'styles': 'src/assets/sass',
+        'images': 'src/assets/images',
+        'static': 'src/static'
+    },
+    'dest': {
+        'styles': 'public/assets/css',
+        'images': 'public/assets/images',
+        'static': 'public/'
+    }
+};
 
-gulp.task('default', () => {
-   console.log(process.env.NODE_ENV);
+function emitLog(stage, err) {
+    if (err) {
+        notifier.notify({
+            'title': `ERROR: ${stage}`,
+            'message': `There was an error within ${stage}`
+        });
+        console.log(err); // eslint-disable-line
+    }
+}
+
+// Styles Task
+gulp.task('styles', () => {
+    let processors = [
+        autoprefixer(),
+        normalize()
+    ];
+    if (env !== 'development') {
+        processors.push(cssnano);
+    }
+    return gulp.src(`${paths.src.styles}/**/*.scss`)
+        .pipe(sassGlob())
+        .pipe(
+            sass()
+                .on('error', (err) => {
+                    emitLog('styles', err);
+                    this.emit('end');
+                })
+        )
+        .pipe(postcss(processors))
+        .pipe(gulp.dest(paths.dest.styles));
 });
-//
-// gulp.task('set-development', function () {
-//     environ = 'development';
-// });
-//
-// // SCSS processing
-// gulp.task('styles', function () {
-//     var srcPath = cms.src.themes + '/' + config.themeName + '/' + assetDir.styles;
-//     var destPath = cms.dest.themes + '/' + themeName + '/' + assetDir.styles;
-//     var hasError = false;
-//     var processors = [
-//         autoprefixer(),
-//         flexibility
-//     ];
-//     if (environ != 'development') {
-//         processors.push(cssnano);
-//     }
-//     return gulp.src(srcPath + '/**/*.scss')
-//         .pipe(sassGlob())
-//         .pipe(sassVariables({
-//             $APPLICATION_ENV: environ
-//         }))
-//         .pipe(
-//             sass()
-//                 .on('error', function (err) {
-//                     hasError = true;
-//                     emitLog('styles', err);
-//                     this.emit('end');
-//                 })
-//         )
-//         .pipe(postcss(processors))
-//         .pipe(gulp.dest(destPath))
-//         .on('end', function (err) {
-//             if (!hasError) {
-//                 emitLog('styles', err);
-//             }
-//         });
-// });
+
+// Scripts Task
+gulp.task('scripts', () => {
+
+});
+
+// Images Task
+gulp.task('images', () => {
+    if(env === 'development'){
+        return gulp.src(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`)
+            .pipe(newer(paths.dest.images))
+            .pipe(gulp.dest(paths.dest.images))
+            .on('end', (err) => {
+                emitLog('images', err);
+            });
+    }
+    return gulp.src(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`)
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.optipng({optimzationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {
+                        cleanupIDs: false,
+                        removeEmptyAttrs: false,
+                        removeViewBox: false
+                    }
+                ]
+            }),
+            imageminJpegoptim({
+                max: 85,
+                progressive: true
+            })
+        ]))
+        .pipe(gulp.dest(paths.dest.images))
+        .on('end', (err) => {
+            emitLog('images', err);
+        });
+});
+
+// Static Files
+gulp.task('static', () => {
+    return gulp.src(`${paths.src.static}/**/*`)
+        .pipe(newer(paths.dest.static))
+        .pipe(gulp.dest(paths.dest.static))
+        .on('end', (err) => {
+            emitLog('static', err);
+        });
+});
+
+// Templates Task
+gulp.task('templates', () => {
+
+});
+
+// Watch Task
+gulp.task('watch', ['default'], () => {
+
+});
+
+// Compilation Task
+gulp.task('default', ['styles', 'scripts', 'images', 'templates', 'static']);
+
 //
 // // JS processing
 // // Browserified Scripts
@@ -122,22 +189,6 @@ gulp.task('default', () => {
 // });
 // gulp.task('scripts', ['browserifyScript', 'otherScripts']);
 //
-// // Image processing
-// gulp.task('images', function () {
-//     var srcPath = cms.src.themes + '/' + config.themeName + '/' + assetDir.images;
-//     var destPath = cms.dest.themes + '/' + themeName + '/' + assetDir.images;
-//     return gulp.src('./src/themes/' + config.themeName + '/images/**/*')
-//         .pipe(newer(destPath)) //Note: NOT using srcPath
-//         .pipe(imagemin({
-//             progressive: true,
-//             optimizationLevel: 7,
-//             interlaced: true
-//         }))
-//         .pipe(gulp.dest(destPath))
-//         .on('end', function () {
-//             emitLog('images');
-//         });
-// });
 //
 // // All other files processing
 // gulp.task('themeFiles', function () {
