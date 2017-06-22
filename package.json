@@ -44,7 +44,7 @@
     "gulp-uglify": "^3.0.0",
     "imagemin-jpegoptim": "^5.1.0",
     "node-notifier": "^5.1.2",
-    "postcss-normalize": "^3.0.0",
+    "postcss-normalize": "^4.0.0",
     "run-sequence": "^1.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
