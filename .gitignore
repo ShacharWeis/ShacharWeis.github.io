@@ -1,0 +1,7 @@
+node_modules
+sass_cache
+.idea
+.DS_store
+npm-debug.log
+
+/public/
