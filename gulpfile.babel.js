@@ -24,18 +24,22 @@ import imagemin from 'gulp-imagemin';
 import imageminJpegoptim from 'imagemin-jpegoptim';
 
 // Template Processing
+import nunjucksRender from 'gulp-nunjucks-render';
+import htmlmin from 'gulp-htmlmin';
 
 const env = process.env.NODE_ENV; // eslint-disable-line
 const paths = {
     'src': {
         'styles': 'src/assets/sass',
         'images': 'src/assets/images',
-        'static': 'src/static'
+        'static': 'src/static',
+        'template': 'src/templates'
     },
     'dest': {
         'styles': 'public/assets/css',
         'images': 'public/assets/images',
-        'static': 'public/'
+        'static': 'public/',
+        'template': 'public/'
     }
 };
 
@@ -78,7 +82,7 @@ gulp.task('scripts', () => {
 
 // Images Task
 gulp.task('images', () => {
-    if(env === 'development'){
+    if (env === 'development') {
         return gulp.src(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`)
             .pipe(newer(paths.dest.images))
             .pipe(gulp.dest(paths.dest.images))
@@ -122,7 +126,16 @@ gulp.task('static', () => {
 
 // Templates Task
 gulp.task('templates', () => {
-
+    return gulp.src(`${paths.src.template}/**/*.tpl`)
+        .pipe(nunjucksRender({
+            path: [paths.src.template],
+            ext: '.html'
+        }))
+        .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
+        .pipe(gulp.dest(paths.dest.template))
+        .on('end', (err) => {
+            emitLog('template', err);
+        });
 });
 
 // Watch Task

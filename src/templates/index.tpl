@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions</title>
+
+    <link rel="canonical" href="http://www.packet39.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+          content="Virtual Reality, Augmented Reality, Packet39, Custom hardware,software, software development, developer, applications, computer vision, 3d printing, machine learning, openCV">
+    <meta name="description"
+          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+
+    <!--FACEBOOK-->
+    <meta property="og:title"
+          content="Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions">
+    <meta property="og:site_name" content="Packet39">
+    <meta property="og:url" content="http://www.packet39.com/">
+    <meta property="og:description"
+          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <script>
+        (function (i, s, o, g, r, a, m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)}, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+        })
+        (window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-80992066-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../assets/css/ie8.css"/><![endif]-->
+</head>
+<body>
+
+<div id="page-wrapper">
+
+    <section id="wrapper">
+
+        <!-- One -->
+        <section id="one" class="wrapper spotlight style1" style="margin-top: 40%;">
+            <div class="inner">
+                <a href="#" class="image"><img src="images/pic01.jpg" alt=""/></a>
+                <div class="content">
+                    <h2 class="major">Packet39</h2>
+                    <h3 class="major">Code outside the box</h3>
+                    <p>We are a team of professional software developers and academics, working together to provide
+                        software & hardware solutions. We thrive in the space between code and the physical world and we
+                        develop solutions that sense, manipulate and move around in the environment. </p>
+                    <form method="post" action="mailto:Vice@Packet39.com">
+                        <input type="submit" value="Contact Us"/>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Two -->
+        <section id="two" class="wrapper alt spotlight style2">
+            <div class="inner">
+                <a href="#" class="image"><img src="images/pic02.jpg" alt=""/></a>
+                <div class="content">
+                    <h2 class="major">Software</h2>
+                    <p>We develop software under Windows or Linux, using C# & .Net, Matlab, C++, Java or Python. We are
+                        familiar with OpenCV, EMGU, PCL, OpenNI and other CV and Image processing libraries.
+                        <br><br>
+                        We have experience in a wide range of fields, including virtual reality, augmented reality,
+                        action recognition in video, shape detection in stills, segmentation, medical imaging, 3D
+                        printing, 3D scanning and 3D reconstruction, gesture and finger detection using depth cameras,
+                        optical flow, face tracking and much more.
+                        <br><br>
+                        With decades of combined expertise, we can develop and implement algorithms to solve real world
+                        problems. We will choose the right hardware, cameras or sensors for your needs and provide a
+                        start-to-finish service.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three -->
+        <section id="three" class="wrapper spotlight style3">
+            <div class="inner">
+                <a href="#" class="image"><img src="images/pic03.jpg" alt=""/></a>
+                <div class="content">
+                    <h2 class="major">Hardware & Sensors</h2>
+                    <p>We can recommend the hardware most suited for your needs, or work with the equipment you already
+                        have. We have experience with a wide range of small board computers, cameras and sensors,
+                        including Arduino, Raspberry Pi, machine vision cameras and depth cameras.
+                        <br><br>
+                        We can build custom hardware, testing rigs, quadcopters, robotics or tactile user interfaces. We
+                        have the facilities and expertise to design, test and fabricate in-house most of the parts
+                        needed for small to medium projects, allowing a very quick turnaround time. We've also worked
+                        with thermal imagers, capacitance sensors, laser scanners and more exotic forms of remote
+                        sensing and data acquisition.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="four" class="wrapper alt spotlight style1">
+            <div class="inner">
+                <a href="#" class="image"><img src="images/pic04.jpg" alt=""/></a>
+                <div class="content">
+                    <h2 class="major">Virtual Reality</h2>
+                    <p>We design and develop Virual Reality, Augmented Reality and Mixed Reality games and experiences.
+                        <br><br>
+                        We can build your idea, or help you refine it. We can deliver games or applications for Google
+                        Cardboard, Daydream, Samsung GearVR, HTC Vive or the Oculus Rift.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="four" class="wrapper style2">
+            <div class="inner">
+                <h2 class="major">Projects</h2>
+                <section class="features">
+                    <article>
+                        <div style="overflow:hidden;height:270px;width:480px;">
+                            <div id="youtube_canvas" style="height:270px;width:480px;">
+                                <iframe style="height:270px;width:480px;border:0;" frameborder="0"
+                                        src="https://www.youtube.com/embed/kyDiQ-KHNe0?hl=en&amp;autoplay=0&amp;cc_load_policy=0&amp;loop=0&amp;iv_load_policy=1&amp;fs=1&amp;showinfo=1"></iframe>
+                            </div>
+                        </div>
+                        <br>
+
+                        <h3 class="major">Orbital Inection - Virtual Reality game</h3>
+                        <p>Our VR game is now live on <a href="http://store.steampowered.com/app/587730/">Steam</a>.
+                            Grab planets and toss them into a stable orbit. This is a room-scale virtual reality
+                            experiance, running on the HTC Vive.</p>
+
+
+                    </article>
+
+                    <article>
+                        <div style="overflow:hidden;height:270px;width:480px;">
+                            <div id="youtube_canvas" style="height:270px;width:480px;">
+                                <iframe style="height:270px;width:480px;border:0;" frameborder="0"
+                                        src="https://www.youtube.com/embed/P7X9AR5KecE?hl=en&amp;autoplay=0&amp;cc_load_policy=0&amp;loop=0&amp;iv_load_policy=1&amp;fs=1&amp;showinfo=1"></iframe>
+                            </div>
+                        </div>
+                        <br>
+
+                        <h3 class="major">Augmented Reality Buisness Card</h3>
+                        <p>We spruced up our Packet39 Buisness cards with some Augmented Reality magic. Realtime digital
+                            3D graphics overlay, attached to a physical object. If you want to try it yourself, download
+                            the app <b><a
+                                        href="https://www.dropbox.com/s/wdp1tnpkqi83ov1/Packet39.apk?dl=0">here</a></b>
+                            (Android only). You'll need a Packet39 <b><a href="images/BizCard.png">card</a></b>, print
+                            one if you don't have any.</p>
+
+
+                    </article>
+
+
+                    <article>
+                        <div style="overflow:hidden;height:270px;width:480px;">
+                            <div id="youtube_canvas" style="height:270px;width:480px;">
+                                <iframe style="height:270px;width:480px;border:0;" frameborder="0"
+                                        src="https://www.youtube.com/embed/iOc8JQwl8Cc?hl=en&amp;autoplay=0&amp;cc_load_policy=0&amp;loop=0&amp;iv_load_policy=1&amp;fs=1&amp;showinfo=1"></iframe>
+                            </div>
+                        </div>
+                        <br>
+
+                        <h3 class="major">Interactive displays</h3>
+                        <p>Demo reel of several interactive displays developed by Packet39 team members. Detection is
+                            done using cameras and thermal sensors. Effects play in a powerful and customizable XNA
+                            framework. Most effects can be stacked and combined. An editor allowed our client to create
+                            unique experiences with their own graphics and media.</p>
+
+
+                    </article>
+                    <article>
+                        <div style="overflow:hidden;height:270px;width:480px;">
+                            <div id="youtube_canvas" style="height:270px;width:480px;">
+                                <iframe style="height:270px;width:480px;border:0;" frameborder="0"
+                                        src="https://www.youtube.com/embed/0ND8xQoi4yg?hl=en&amp;autoplay=0&amp;cc_load_policy=0&amp;loop=0&amp;iv_load_policy=1&amp;fs=1&amp;showinfo=1"></iframe>
+                            </div>
+                        </div>
+                        <br>
+
+                        <h3 class="major">Custom built laser cutter / engraver</h3>
+                        <p>This custom laser engraver can cut paper, vinyl, plastics, foam or thin wood sheets. It can
+                            engrave most non-metal materials. Sporting a 3.8W blue diode laser and a 32bit control
+                            board, it can handle any complex cutting job you throw at it. Built with a bottom-less
+                            design allowing working any surface or part, even parts that are bigger than the unit
+                            itself.</p>
+
+
+                    </article>
+
+                    <article><img width="400"
+                                  src="https://cdn.shopify.com/s/files/1/1112/9470/files/IMG_5312_grande.jpg?14336047124319799084"
+                                  alt=""/><br><br>
+
+                        <h3 class="major">High resolution 3D print</h3>
+                        <p>3D printed on our high resolution 3D printer, this model can fit on a penny. The printer was
+                            built in our lab and sports a maximum resolution of 40 micron on the XY axis and 20 on the
+                            Z. Castable resin is also available, for creating metal objects.</p>
+
+                    </article>
+                    <article>
+                        <iframe width="480px" height="300px"
+                                src="https://sketchfab.com/models/89f374da58dc4a5d974bcaba16c68d7f/embed"
+                                frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+                                onmousewheel=""></iframe>
+                        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"></p><br>
+
+
+                        <h3 class="major">3D Scan of a house</h3>
+                        <p>This 3D model of a house was reconstructed from 200 images, shot with a custom built
+                            autonomous quadcopter.</p>
+
+                    </article>
+                </section>
+            </div>
+        </section>
+
+
+        <!-- Four -->
+        <section id="four" class="wrapper alt style1">
+            <div class="inner">
+                <h2 class="major">The Team</h2>
+                <section class="features">
+                    <article>
+                        <a href="#" class="image"><img src="images/vice.png" alt=""/></a>
+                        <h3 class="major">Shachar "Vice" Weis</h3>
+                        <p>Shachar is a software developer with over 20 years of experience. He has worked in many
+                            fields and disciplines, from ancient mainframes to tiny system-on-chip units. Shachar has
+                            extensive experience with small board computer and low-power systems, 3D platforms like
+                            OpenGL, DirectX, XNA and Three.JS. Shachar has dealt with first-tier customers like Disney,
+                            Sears, GE and Mazda.<br><br>
+
+                            Shachar usually goes by Vice, and is also a tinkerer, maker, 3d printing enthusiast and
+                            photographer. Follow some of his projects on his blog <a href="http://CallMeVice.com">CallMeVice.com</a>
+                        </p>
+
+
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="images/lena.png" alt=""/></a>
+                        <h3 class="major">Lena Gorelick</h3>
+                        <p> Dr. Gorelick is currently a research scientist with the Computer Science Department at the
+                            University of Western Ontario, London, Canada. Both her MSc (2004) and PhD (2009) are in
+                            Computer Science and Applied Mathematics from the Weizmann Institute of Science, Israel.
+                            During the past 16 years Lena has gained a lot of experience in various academic, military
+                            and industrial fields. Lena's publications can be found on her website, <a
+                                    href="http://www.csd.uwo.ca/~ygorelic/">csd.uwo.ca/~ygorelic/</a><br><br>
+
+                            Lena is also an artist and a jeweler, she has an <a
+                                    href="https://lenagorelick.wordpress.com/">art blog</a> and an Etsy store called <a
+                                    href="https://nunandnoot.etsy.com/">Nun&Noot</a>.</p>
+                    </article>
+
+                    <article>
+                        <a href="#" class="image"><img src="images/hossam.png" alt=""/></a>
+                        <h3 class="major">Hossam Issacs</h3>
+                        <p> Hossam is doing his post-doctorate at the Computer Science Department at the University of
+                            Western Ontario, London, Canada. Publications and CV can be found on Hossam's website: <a
+                                    href="http://www.hisack.com/">hisack.com</a><br><br>
+                    </article>
+
+                    <article>
+                        <a href="#" class="image"><img src="images/sarah.jpg" alt=""/></a>
+                        <h3 class="major">Sarah Legault </h3>
+                        <p>Sarah is an award winning filmmaker, director, producer, animator and writer. Her first
+                            stop-motion animation Dear Love earned the Best Animated Short Film award at the 2014
+                            Toronto Independent Film Festival. Sarah recently teamed up with Canadian electro-goth band
+                            Johnny Hollow to direct and animate their stop-motion music video Firefly. Since 2005, she
+                            has won over 10 awards for her unique custom motorcycle paint work and participated in about
+                            50 group exhibits in Toronto, Berlin, Krakow, or Los Angeles. Sarah’s work spans
+                            illustration, stop-motion animation, doll making, painting, photography and curating
+                            multimedia shows.</a></p>
+                    </article>
+
+
+                </section>
+            </div>
+        </section>
+
+
+        <section id="five" class="wrapper alt style3">
+            <div class="inner">
+                <h2 class="major">Get in touch</h2>
+                <p>We will be happy to answer any questions you might have. If you have a project in mind, let us know
+                    and we'll create a white paper and a proposal for you, free and without commitment. </p>
+                <form method="post" action="#">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name"/>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email"/>
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="4"></textarea>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message"/></li>
+                    </ul>
+                </form>
+
+            </div>
+        </section>
+
+        <section id="five" class="wrapper style4">
+            <div class="inner">
+                <h2 class="major">Contact</h2>
+                <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
+                    for your project, free of charge and without commitment. </p>
+                <ul class="contact">
+                    <li class="fa-envelope"><a href="mailto:Vice@Packet39.com">Vice@Packet39.com</a></li>
+                    <li class="fa-home">
+                        Packet39<br/>
+                        39 Raebrook Place<br/>
+                        London, ON, Canada<br/>
+                        N5X2Z8
+                    </li>
+                    <li class="fa-phone">519-902-6191</li>
+                    <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39">@Vice_Packet39</a></li>
+                    <li class="fa-wordpress"><a href="https://callmevice.com/">CallMeVice.com</a></li>
+                </ul>
+
+            </div>
+        </section>
+
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="../assets/js/skel.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<!--[if lte IE 8]>
+<script src="../assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>
