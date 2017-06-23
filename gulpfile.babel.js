@@ -1,6 +1,7 @@
 'use strict';
 
 // Core Node
+import * as fs from 'fs';
 
 // Core Gulp
 import gulp from 'gulp';
@@ -18,6 +19,13 @@ import cssnano from 'cssnano';
 import normalize from 'postcss-normalize';
 
 // Javascript Processing
+import browserify from 'browserify';
+import babelify from 'babelify';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+import es from 'event-stream';
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
 
 // Image Processing
 import imagemin from 'gulp-imagemin';
@@ -27,16 +35,21 @@ import imageminJpegoptim from 'imagemin-jpegoptim';
 import nunjucksRender from 'gulp-nunjucks-render';
 import htmlmin from 'gulp-htmlmin';
 
+const packageJson = JSON.parse(fs.readFileSync('./package.json'));
+const targets = packageJson.browserslist;
+
 const env = process.env.NODE_ENV; // eslint-disable-line
 const paths = {
     'src': {
         'styles': 'src/assets/sass',
+        'scripts': 'src/assets/js',
         'images': 'src/assets/images',
         'static': 'src/static',
         'template': 'src/templates'
     },
     'dest': {
         'styles': 'public/assets/css',
+        'scripts': 'public/assets/js',
         'images': 'public/assets/images',
         'static': 'public/',
         'template': 'public/'
@@ -77,7 +90,29 @@ gulp.task('styles', () => {
 
 // Scripts Task
 gulp.task('scripts', () => {
-
+    return gulp.src(`${paths.src.scripts}/**/*.js`, (err, files) => {
+        let tasks = files.map((entry) => {
+            return browserify({entries: [entry]})
+                .transform(babelify, {
+                    presets: [[
+                        'env', {
+                            'targets': targets[env]
+                        }]]
+                })
+                .bundle()
+                .pipe(source(entry))
+                .pipe(buffer())
+                .pipe(env !== 'development' ? uglify() : buffer())
+                .pipe(rename((fileObj) => {
+                    fileObj.dirname = '';
+                }))
+                .pipe(gulp.dest(paths.dest.scripts));
+        });
+        es.merge(tasks);
+    })
+        .on('end', (err) => {
+            emitLog('scripts', err);
+        });
 });
 
 // Images Task
@@ -140,150 +175,12 @@ gulp.task('templates', () => {
 
 // Watch Task
 gulp.task('watch', ['default'], () => {
-
+    gulp.watch(`${paths.src.static}/**/*`,['static']);
+    gulp.watch(`${paths.src.styles}/**/*.scss`,['styles']);
+    gulp.watch(`${paths.src.scripts}/**/*.js`,['scripts']);
+    gulp.watch(`${paths.src.template}/**/*.tpl`,['templates']);
+    gulp.watch(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`,['images']);
 });
 
 // Compilation Task
 gulp.task('default', ['styles', 'scripts', 'images', 'templates', 'static']);
-
-//
-// // JS processing
-// // Browserified Scripts
-// gulp.task('browserifyScript', function () {
-//     var srcPath = cms.src.themes + '/' + config.themeName + '/' + assetDir.scripts;
-//     var destPath = cms.dest.themes + '/' + themeName + '/' + assetDir.scripts;
-//     var hasError = false;
-//     return gulp.src(srcPath + '/*.bundle.js', function (err, files) {
-//         var tasks = files.map(function (entry) {
-//             return browserify({entries: [entry]})
-//                 .transform('babelify', {
-//                     presets: [
-//                         'es2015',
-//                         'stage-1'
-//                     ]
-//                 })
-//                 .bundle()
-//                 .pipe(source(entry))
-//                 .pipe(buffer())
-//                 .pipe(environ != 'development' ? uglify() : buffer())
-//                 .pipe(rename(function (fileObj) {
-//                     fileObj.extname = '.min.js';
-//                     fileObj.dirname = '';
-//                     fileObj.basename = fileObj.basename.replace('.bundle', '');
-//                 }))
-//                 .pipe(gulp.dest(destPath));
-//         });
-//         es.merge(tasks);
-//     })
-//         .on('end', function (err) {
-//             if (!hasError) {
-//                 emitLog('browserify scripts', err);
-//             }
-//         });
-// });
-// // Non browserified scripts
-// gulp.task('otherScripts', function () {
-//     var srcPath = cms.src.themes + '/' + config.themeName + '/' + assetDir.scripts;
-//     var destPath = cms.dest.themes + '/' + themeName + '/' + assetDir.scripts;
-//     return gulp.src([
-//         srcPath + '/**.js',
-//         '!' + srcPath + '/*.bundle.js'
-//     ])
-//         .pipe(environ != 'development' ? uglify() : buffer())
-//         .pipe(rename(function (fileObj) {
-//             fileObj.basename = fileObj.basename.replace('.min', '');
-//             fileObj.extname = '.min.js';
-//             fileObj.dirname = '';
-//         }))
-//         .pipe(gulp.dest(destPath))
-//         .on('end', function () {
-//             emitLog('regular scripts');
-//         });
-// });
-// gulp.task('scripts', ['browserifyScript', 'otherScripts']);
-//
-//
-// // All other files processing
-// gulp.task('themeFiles', function () {
-//     var srcPath = cms.src.themes + '/' + config.themeName;
-//     var destPath = cms.dest.themes + '/' + themeName;
-//     return gulp.src([
-//         srcPath + '/**/*',
-//         '!' + srcPath + '/' + assetDir.images + '/**/*',
-//         '!' + srcPath + '/' + assetDir.styles + '/**/*',
-//         '!' + srcPath + '/' + assetDir.scripts + '/**/*'
-//     ])
-//         .pipe(newer(destPath))
-//         .pipe(gulp.dest(destPath))
-//         .on('end', function () {
-//             emitLog('theme files');
-//         });
-// });
-//
-// // Gulp watch task
-// gulp.task('watch', function () {
-//     gulp.watch(
-//         [
-//             cms.src.cmsFiles + '/**/*',
-//             '!' + cms.src.themes + '/**/*',
-//             '!' + cms.src.packages + '/**/*'
-//         ],
-//         [
-//             'cmsFiles',
-//             'delete'
-//         ]
-//     );
-//     gulp.watch(
-//         cms.src.packages + '/**/*',
-//         [
-//             'packages',
-//             'delete'
-//         ]
-//     );
-//     gulp.watch(
-//         [
-//             cms.src.themes + '/' + config.themeName + '/**/*',
-//             '!' + cms.src.themes + '/' + config.themeName + '/' + assetDir.images + '/**/*',
-//             '!' + cms.src.themes + '/' + config.themeName + '/' + assetDir.styles + '/**/*',
-//             '!' + cms.src.themes + '/' + config.themeName + '/' + assetDir.scripts + '/**/*',
-//             '!' + cms.src.themes + '/' + config.themeName + '/' + assetDir.media + '/**/*'
-//         ],
-//         [
-//             'themeFiles',
-//             'delete'
-//         ]
-//     );
-//     gulp.watch(
-//         cms.src.themes + '/' + config.themeName + '/' + assetDir.scripts + '/**/*',
-//         [
-//             'scripts',
-//             'delete'
-//         ]
-//     );
-//     gulp.watch(
-//         cms.src.themes + '/' + config.themeName + '/' + assetDir.images + '/**/*',
-//         [
-//             'images',
-//             'delete'
-//         ]
-//     );
-//     gulp.watch(
-//         cms.src.themes + '/' + config.themeName + '/' + assetDir.styles + '/**/*.scss',
-//         [
-//             'styles', //styles
-//             'delete'
-//         ]
-//     );
-// });
-//
-// gulp.task('default', function () {
-//     runSequence('set-development', 'init', 'watch');
-// });
-//
-// // Gulp task to compile all assets
-// gulp.task('init', function () {
-//     runSequence('styleClean', ['styleChain', 'scripts', 'images', 'themeFiles', 'cmsFiles', 'packages', 'wordpressPlugins']);
-// });
-//
-// // Production task
-// gulp.task('production', ['init']);
