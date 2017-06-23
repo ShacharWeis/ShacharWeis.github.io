@@ -164,6 +164,13 @@ gulp.task('templates', () => {
     return gulp.src(`${paths.src.template}/**/*.tpl`)
         .pipe(nunjucksRender({
             path: [paths.src.template],
+            data: {
+                stylePath: './assets/css',
+                scriptPath: './assets/js',
+                imagePath: './assets/images',
+                staticPath: './static',
+                composerPath: './app'
+            },
             ext: '.html'
         }))
         .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
@@ -178,7 +185,7 @@ gulp.task('watch', ['default'], () => {
     gulp.watch(`${paths.src.static}/**/*`,['static']);
     gulp.watch(`${paths.src.styles}/**/*.scss`,['styles']);
     gulp.watch(`${paths.src.scripts}/**/*.js`,['scripts']);
-    gulp.watch(`${paths.src.template}/**/*.tpl`,['templates']);
+    gulp.watch(`${paths.src.template}/**/*`,['templates']);
     gulp.watch(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`,['images']);
 });
 
