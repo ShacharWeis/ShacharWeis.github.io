@@ -119,7 +119,7 @@
                 <div class="youtubePlayer" data-id="kyDiQ-KHNe0"></div>
                 <br>
 
-                <h3 class="major">Orbital Inection - Virtual Reality game</h3>
+                <h3 class="major">Orbital Injection - Virtual Reality game</h3>
                 <p>Our VR game is now live on <a href="http://store.steampowered.com/app/587730/">Steam</a>.
                     Grab planets and toss them into a stable orbit. This is a room-scale virtual reality
                     experiance, running on the HTC Vive.</p>
