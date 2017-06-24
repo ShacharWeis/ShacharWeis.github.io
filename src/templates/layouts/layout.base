@@ -91,41 +91,10 @@
 </div>
 
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.0/skel.min.js" integrity="sha256-yT5Wv7aPg4m13s/PtiGGOz1IhAOVAfgpBFjYNFIl/sQ=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha256-rsPUGdUPBXgalvIj4YKJrrUlmLXbOb6Cp7cdxn1qeUc=" crossorigin="anonymous"></script>
-<script src="{{ scriptPath }}/jquery.scrollex.min.js"></script>
-<script src="{{ scriptPath }}/main.js"></script>
-<script>
-
-    document.onreadystatechange = function () {
-        if (document.readyState === "complete") {
-            var div, n,
-                v = document.getElementsByClassName("youtubePlayer");
-            for (n = 0; n < v.length; n++) {
-                div = document.createElement("div");
-                div.setAttribute("data-id", v[n].dataset.id);
-                div.innerHTML = labnolThumb(v[n].dataset.id);
-                div.onclick = labnolIframe;
-                v[n].appendChild(div);
-            }
-        }
-    };
-
-    function labnolThumb(id) {
-        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="youtube video placeholder">',
-            play = '<div class="play"></div>';
-        return thumb.replace("ID", id) + play;
-    }
-
-    function labnolIframe() {
-        var iframe = document.createElement("iframe");
-        var embed = "https://www.youtube.com/embed/ID?autoplay=1";
-        iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "1");
-        this.parentNode.replaceChild(iframe, this);
-    }
-
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.0/skel.min.js" integrity="sha256-yT5Wv7aPg4m13s/PtiGGOz1IhAOVAfgpBFjYNFIl/sQ=" crossorigin="anonymous" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha256-rsPUGdUPBXgalvIj4YKJrrUlmLXbOb6Cp7cdxn1qeUc=" crossorigin="anonymous" defer></script>
+<script src="{{ scriptPath }}/jquery.scrollex.min.js"  defer></script>
+<script src="{{ scriptPath }}/main.js" defer></script>
+<script src="{{ scriptPath }}/optimization.js" defer></script>
 </body>
 </html>
