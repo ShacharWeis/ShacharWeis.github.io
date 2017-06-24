@@ -18,8 +18,60 @@
     </div>
 </section>
 
-<!-- Two -->
+
 <section id="two" class="wrapper alt spotlight style2">
+    <div class="inner">
+        <a href="#" class="image"><img src="{{ imagePath }}/pic04.jpg" alt=""/></a>
+        <div class="content">
+            <h2 class="major">Virtual Reality</h2>
+            <p>We design and develop Virual Reality, Augmented Reality and Mixed Reality games and experiences.
+                <br><br>
+                We can build your idea, or help you refine it. We can deliver games or applications for Google
+                Cardboard, Daydream, Samsung GearVR, HTC Vive or the Oculus Rift.</p>
+        </div>
+    </div>
+</section>
+
+<section id="three" class="wrapper spotlight style1">
+    <div class="inner">
+        <a href="#" class="image"><img src="{{ imagePath }}/pewpew.png" alt=""/></a>
+        <div class="content">
+            <h2 class="major">Augmented Reality</h2>
+            <p>Bring to life static everyday objects, from buisness cards, to books, magazines, brochures and
+                even three dimentional items such as toys or consumer products. Overlay, animate, gamify and
+                extend your marketing materials.
+                <br><br>
+                Try it yourself, download our AR apps from the links below (Android only). Run the app and point
+                your smartphone camera at one of our cards. If you don't have any, you can download and print
+                our <b><a href="{{ imagePath }}/BizCard.png" target="_blank">buisness card</a></b> or the Alien Attack
+                <b><a
+                            href="{{ imagePath }}/AlienAttack.png" target="_blank"> game card</a></b>.</p>
+            </p>
+
+            <table border=0>
+                <tr>
+                    <td>
+                        <input type="submit" value="Buisness Card AR"
+                               onclick="window.location.href='https://www.dropbox.com/s/wdp1tnpkqi83ov1/Packet39.apk?dl=1';"/>
+                    </td>
+                    <td>
+
+                        <input type="submit" value="Alien Attack"
+                               onclick="window.location.href='https://www.dropbox.com/s/flq8g7g8dkcjoqp/Packet39%20Alien%20Attack.apk?dl=1';"/>
+
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Two -->
+<section id="four" class="wrapper alt spotlight style2">
     <div class="inner">
         <a href="#" class="image"><img src="{{ imagePath }}/pic02.jpg" alt=""/></a>
         <div class="content">
@@ -58,21 +110,8 @@
     </div>
 </section>
 
-<section id="four" class="wrapper alt spotlight style1">
-    <div class="inner">
-        <a href="#" class="image"><img src="{{ imagePath }}/pic04.jpg" alt=""/></a>
-        <div class="content">
-            <h2 class="major">Virtual Reality</h2>
-            <p>We design and develop Virual Reality, Augmented Reality and Mixed Reality games and experiences.
-                <br><br>
-                We can build your idea, or help you refine it. We can deliver games or applications for Google
-                Cardboard, Daydream, Samsung GearVR, HTC Vive or the Oculus Rift.</p>
-        </div>
-    </div>
-</section>
 
-
-<section id="four" class="wrapper style2">
+<section id="four" class="wrapper alt style2">
     <div class="inner">
         <h2 class="major">Projects</h2>
         <section class="features">
@@ -134,8 +173,8 @@
                 <div class="intrinsicContainer">
                     <div class="intrinsicWrapper">
                         <img
-                          src="{{ imagePath }}/3d_print.jpg"
-                          alt=""/>
+                                src="{{ imagePath }}/3d_print.jpg"
+                                alt=""/>
                     </div>
                 </div>
                 <br>
@@ -170,7 +209,7 @@
 
 
 <!-- Four -->
-<section id="four" class="wrapper alt style1">
+<section id="four" class="wrapper style1">
     <div class="inner">
         <h2 class="major">The Team</h2>
         <section class="features">
@@ -231,7 +270,7 @@
     </div>
 </section>
 
-<section id="footer" class="wrapper style4">
+<section id="footer" class="wrapper alt style4">
     <div class="inner">
         <h2 class="major">Contact</h2>
         <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
