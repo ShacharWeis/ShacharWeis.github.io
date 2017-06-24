@@ -32,6 +32,7 @@
     </div>
 </section>
 
+
 <section id="three" class="wrapper spotlight style1">
     <div class="inner">
         <a href="#" class="image"><img src="{{ imagePath }}/pewpew.png" alt=""/></a>
