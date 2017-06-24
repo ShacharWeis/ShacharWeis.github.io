@@ -10,7 +10,7 @@ document.onreadystatechange = function () {
 };
 
 function initYoutube() {
-    let div, n,
+    let div,
         v = document.getElementsByClassName('youtubePlayer');
 
     if (v.length > 0) {
@@ -39,7 +39,7 @@ function youtubeIframe() {
 }
 
 function initSketchfab() {
-    let div, n,
+    let div,
         v = document.getElementsByClassName('sketchfabPlayer');
 
     if (v.length > 0) {

@@ -58,8 +58,7 @@
         ga('send', 'pageview');
 
     </script>
-    <link rel="stylesheet" href="{{ stylePath }}/main.css"/>
-
+    <style><?php include '{{ stylePath }}/main.css' ?></style>
 </head>
 <body>
 
@@ -83,7 +82,7 @@
     (function(d) {
         var wf = d.createElement('script'), s = d.scripts[0];
         wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
-        wf.async = true;
+        wf.defer = true;
         wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
         wf.setAttribute('crossorigin', 'anonymous');
         s.parentNode.insertBefore(wf, s);

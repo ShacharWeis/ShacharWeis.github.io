@@ -171,9 +171,9 @@ gulp.task('templates', () => {
                 staticPath: './static',
                 composerPath: './app'
             },
-            ext: '.html'
+            ext: '.php'
         }))
-        .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
+        // .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
         .pipe(gulp.dest(paths.dest.template))
         .on('end', (err) => {
             emitLog('template', err);
