@@ -61,7 +61,7 @@ function sketchFabThumb(id) {
 
 function sketchFabIframe() {
     const iframe = document.createElement('iframe');
-    iframe.setAttribute('src', `https://sketchfab.com/models/${this.dataset.id}/embed`);
+    iframe.setAttribute('src', `https://sketchfab.com/models/${this.dataset.id}/embed?autostart=1`);
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute('allowfullscreen', 'true');
     iframe.setAttribute('mozallowfullscreen', 'true');
