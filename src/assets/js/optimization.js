@@ -5,6 +5,7 @@ NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEa
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
         initYoutube();
+        initSketchfab();
     }
 };
 
@@ -24,16 +25,47 @@ function initYoutube() {
 }
 
 function youtubeThumb(id) {
-    const thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="youtube video placeholder">',
+    const thumb = `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="youtube video placeholder">`,
         play = '<div class="play"></div>';
-    return thumb.replace('ID', id) + play;
+    return thumb + play;
 }
 
 function youtubeIframe() {
     const iframe = document.createElement('iframe');
-    const embed = 'https://www.youtube.com/embed/ID?autoplay=1';
-    iframe.setAttribute('src', embed.replace('ID', this.dataset.id));
+    iframe.setAttribute('src', `https://www.youtube.com/embed/${this.dataset.id}?autoplay=1`);
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute('allowfullscreen', '1');
+    this.parentNode.replaceChild(iframe, this);
+}
+
+function initSketchfab() {
+    let div, n,
+        v = document.getElementsByClassName('sketchfabPlayer');
+
+    if (v.length > 0) {
+        [...v].forEach((value,key) => {
+            div = document.createElement('div');
+            div.setAttribute('data-id', v[key].dataset.id);
+            div.innerHTML = sketchFabThumb(v[key].dataset.id);
+            div.onclick = sketchFabIframe;
+            v[key].appendChild(div);
+        });
+    }
+}
+
+function sketchFabThumb(id) {
+    const thumb = `<img src="./assets/images/${id}.jpg" alt="sketchfab placeholder">`,
+        play = '<div class="play"></div>';
+    return thumb + play;
+}
+
+function sketchFabIframe() {
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', `https://sketchfab.com/models/${this.dataset.id}/embed`);
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', 'true');
+    iframe.setAttribute('mozallowfullscreen', 'true');
+    iframe.setAttribute('webkitallowfullscreen', 'true');
+    iframe.setAttribute('onmousewheel', '');
     this.parentNode.replaceChild(iframe, this);
 }
