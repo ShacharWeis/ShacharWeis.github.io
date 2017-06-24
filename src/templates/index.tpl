@@ -186,18 +186,8 @@
 
             </article>
             <article>
-                <div class="intrinsicContainer">
-                    <div class="intrinsicWrapper">
-                        <iframe
-                                src="https://sketchfab.com/models/89f374da58dc4a5d974bcaba16c68d7f/embed"
-                                frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                                onmousewheel=""></iframe>
-                    </div>
-                </div>
-
-                <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"></p><br>
-
-
+                <div class="sketchfabPlayer" data-id="89f374da58dc4a5d974bcaba16c68d7f"></div>
+                <br>
                 <h3 class="major">3D Scan of a house</h3>
                 <p>This 3D model of a house was reconstructed from 200 images, shot with a custom built
                     autonomous quadcopter.</p>

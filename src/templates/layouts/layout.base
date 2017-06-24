@@ -58,26 +58,7 @@
         ga('send', 'pageview');
 
     </script>
-    <script>
-        WebFontConfig = {
-            google: {
-                families: ['Raleway:200,700','Source Sans Pro:300,600,300italic,600italic']
-            }
-        };
-
-        (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
-            wf.async = true;
-            wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
-            wf.setAttribute('crossorigin', 'anonymous');
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
-    <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
-
-    <link rel="stylesheet" href="{{ stylePath }}/main.css"/>
-
+    <style><?php include '{{ stylePath }}/main.css' ?></style>
 </head>
 <body>
 
@@ -91,6 +72,23 @@
 </div>
 
 <!-- Scripts -->
+<script>
+    WebFontConfig = {
+        google: {
+            families: ['Raleway:200,700','Source Sans Pro:300,600,300italic,600italic']
+        }
+    };
+
+    (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
+        wf.async = true;
+        wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
+        wf.setAttribute('crossorigin', 'anonymous');
+        s.parentNode.insertBefore(wf, s);
+    })(document);
+</script>
+<script src="https://use.fontawesome.com/29e42826d0.js" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.0/skel.min.js" integrity="sha256-yT5Wv7aPg4m13s/PtiGGOz1IhAOVAfgpBFjYNFIl/sQ=" crossorigin="anonymous" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha256-rsPUGdUPBXgalvIj4YKJrrUlmLXbOb6Cp7cdxn1qeUc=" crossorigin="anonymous" defer></script>
 <script src="{{ scriptPath }}/jquery.scrollex.min.js"  defer></script>
