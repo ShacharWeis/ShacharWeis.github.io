@@ -58,7 +58,6 @@
         ga('send', 'pageview');
 
     </script>
-
     <link rel="stylesheet" href="{{ stylePath }}/main.css"/>
 
 </head>
