@@ -4,16 +4,16 @@
 <!-- One -->
 <section id="one" class="wrapper spotlight style1" style="margin-top: 40%;">
     <div class="inner">
-        <a href="#" class="image"><img src="{{ imagePath }}/pic01.jpg" alt=""/></a>
+        <img src="{{ imagePath }}/pic01.jpg" alt="" class="image"/>
         <div class="content">
-            <h2 class="major">Packet39</h2>
-            <h3 class="major">Code outside the box</h3>
+            <h1 class="major">Packet39</h1>
+            <strong class="major focus">Code outside the box</strong>
             <p>We are a team of professional software developers and academics, working together to provide
                 software & hardware solutions. We thrive in the space between code and the physical world and we
                 develop solutions that sense, manipulate and move around in the environment. </p>
-            <form method="post" action="mailto:Vice@Packet39.com">
-                <input type="submit" value="Contact Us"/>
-            </form>
+
+            <a href="#footer" class="button" title="Contact Us">Contact Us</a>
+
         </div>
     </div>
 </section>
@@ -21,7 +21,7 @@
 
 <section id="two" class="wrapper alt spotlight style2">
     <div class="inner">
-        <a href="#" class="image"><img src="{{ imagePath }}/pic04.jpg" alt=""/></a>
+        <img src="{{ imagePath }}/pic04.jpg" alt="" class="image"/>
         <div class="content">
             <h2 class="major">Virtual Reality</h2>
             <p>We design and develop Virual Reality, Augmented Reality and Mixed Reality games and experiences.
@@ -35,7 +35,7 @@
 
 <section id="three" class="wrapper spotlight style1">
     <div class="inner">
-        <a href="#" class="image"><img src="{{ imagePath }}/pewpew.png" alt=""/></a>
+        <img src="{{ imagePath }}/pewpew.png" alt="" class="image"/>
         <div class="content">
             <h2 class="major">Augmented Reality</h2>
             <p>Bring to life static everyday objects, from buisness cards, to books, magazines, brochures and
@@ -44,29 +44,16 @@
                 <br><br>
                 Try it yourself, download our AR apps from the links below (Android only). Run the app and point
                 your smartphone camera at one of our cards. If you don't have any, you can download and print
-                our <b><a href="{{ imagePath }}/BizCard.png" target="_blank">buisness card</a></b> or the Alien Attack
-                <b><a
-                            href="{{ imagePath }}/AlienAttack.png" target="_blank"> game card</a></b>.</p>
+                our <strong><a href="{{ imagePath }}/BizCard.png" target="_blank">buisness card</a></strong> or the Alien Attack
+                <strong><a
+                            href="{{ imagePath }}/AlienAttack.png" target="_blank"> game card</a></strong>.</p>
             </p>
-
-            <table border=0>
-                <tr>
-                    <td>
-                        <input type="submit" value="Buisness Card AR"
-                               onclick="window.location.href='https://www.dropbox.com/s/wdp1tnpkqi83ov1/Packet39.apk?dl=1';"/>
-                    </td>
-                    <td>
-
-                        <input type="submit" value="Alien Attack"
-                               onclick="window.location.href='https://www.dropbox.com/s/flq8g7g8dkcjoqp/Packet39%20Alien%20Attack.apk?dl=1';"/>
-
-                    </td>
-                </tr>
-
-
-            </table>
-
-
+            <a href="https://www.dropbox.com/s/wdp1tnpkqi83ov1/Packet39.apk?dl=1" target="_blank" class="button">
+                Business Card AR
+            </a>
+            <a href="https://www.dropbox.com/s/flq8g7g8dkcjoqp/Packet39%20Alien%20Attack.apk?dl=1" target="_blank" class="button">
+                Alien Attack
+            </a>
         </div>
     </div>
 </section>
@@ -74,7 +61,7 @@
 <!-- Two -->
 <section id="four" class="wrapper alt spotlight style2">
     <div class="inner">
-        <a href="#" class="image"><img src="{{ imagePath }}/pic02.jpg" alt=""/></a>
+        <img src="{{ imagePath }}/pic02.jpg" alt="" class="image"/>
         <div class="content">
             <h2 class="major">Software</h2>
             <p>We develop software under Windows or Linux, using C# & .Net, Matlab, C++, Java or Python. We are
@@ -95,7 +82,7 @@
 <!-- Three -->
 <section id="three" class="wrapper spotlight style3">
     <div class="inner">
-        <a href="#" class="image"><img src="{{ imagePath }}/pic03.jpg" alt=""/></a>
+        <img src="{{ imagePath }}/pic03.jpg" alt="" class="image" />
         <div class="content">
             <h2 class="major">Hardware & Sensors</h2>
             <p>We can recommend the hardware most suited for your needs, or work with the equipment you already

@@ -91,6 +91,11 @@
 		font-weight: _font(weight-bold);
 	}
 
+	strong.focus {
+		font-size: 0.9em;
+		display: block;
+	}
+
 	em, i {
 		font-style: italic;
 	}
@@ -99,7 +104,7 @@
 		margin: 0 0 _size(element-margin) 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3, h4, h5, h6, strong.focus {
 		color: _palette(fg-bold);
 		font-family: _font(family-heading);
 		font-weight: _font(weight-heading-bold);
@@ -120,6 +125,10 @@
 			padding-bottom: 1em;
 			border-bottom: solid 2px _palette(border);
 		}
+	}
+
+	h1 {
+		font-size: 1.2em;
 	}
 
 	h2 {
