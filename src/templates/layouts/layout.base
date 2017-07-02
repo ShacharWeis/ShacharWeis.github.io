@@ -7,25 +7,34 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
+    <link rel="dns-prefetch" href="https://use.fontawesome.com"/>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
+
+    <script>
+        window.ga = window.ga || function () {
+                (ga.q = ga.q || []).push(arguments);
+            };
+        ga.l = +new Date;
+        ga('create', 'UA-80992066-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
     <title>Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions</title>
-
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://use.fontawesome.com" />
-    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-
-    <link rel="canonical" href="http://packet39.com/">
     <meta name="keywords"
           content="Virtual Reality, Augmented Reality, Packet39, Custom hardware,software, software development, developer, applications, computer vision, 3d printing, machine learning, openCV">
     <meta name="description"
           content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+    <link rel="canonical" href="http://packet39.com/">
 
     <!--FACEBOOK-->
     <meta property="og:title"
           content="Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions">
     <meta property="og:site_name" content="Packet39">
-    <meta property="og:url" content="http://www.packet39.com/">
+    <meta property="og:url" content="http://packet39.com/">
     <meta property="og:description"
           content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
     <meta property="og:image" content="">
@@ -43,43 +52,10 @@
     <meta name="msapplication-config" content="{{ staticPath }}/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <script>
-        (function (i, s, o, g, r, a, m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)}, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-        })
-        (window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-80992066-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-    <script>
-        WebFontConfig = {
-            google: {
-                families: ['Raleway:200,700','Source Sans Pro:300,600,300italic,600italic']
-            }
-        };
-
-        (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
-            wf.async = true;
-            wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
-            wf.setAttribute('crossorigin', 'anonymous');
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
-    <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
-
-    <link rel="stylesheet" href="{{ stylePath }}/main.css"/>
-
+    <style><?php include '{{ stylePath }}/main.css' ?></style>
 </head>
-<body>
+<body style="background-image: url('./assets/images/main_small.jpg')">
 
 <div id="page-wrapper">
 
@@ -91,41 +67,23 @@
 </div>
 
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.0/skel.min.js" integrity="sha256-yT5Wv7aPg4m13s/PtiGGOz1IhAOVAfgpBFjYNFIl/sQ=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha256-rsPUGdUPBXgalvIj4YKJrrUlmLXbOb6Cp7cdxn1qeUc=" crossorigin="anonymous"></script>
-<script src="{{ scriptPath }}/jquery.scrollex.min.js"></script>
-<script src="{{ scriptPath }}/main.js"></script>
 <script>
-
-    document.onreadystatechange = function () {
-        if (document.readyState === "complete") {
-            var div, n,
-                v = document.getElementsByClassName("youtubePlayer");
-            for (n = 0; n < v.length; n++) {
-                div = document.createElement("div");
-                div.setAttribute("data-id", v[n].dataset.id);
-                div.innerHTML = labnolThumb(v[n].dataset.id);
-                div.onclick = labnolIframe;
-                v[n].appendChild(div);
-            }
+    WebFontConfig = {
+        google: {
+            families: ['Raleway:200,700', 'Source Sans Pro:300,600,300italic,600italic']
         }
     };
 
-    function labnolThumb(id) {
-        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="youtube video placeholder">',
-            play = '<div class="play"></div>';
-        return thumb.replace("ID", id) + play;
-    }
-
-    function labnolIframe() {
-        var iframe = document.createElement("iframe");
-        var embed = "https://www.youtube.com/embed/ID?autoplay=1";
-        iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "1");
-        this.parentNode.replaceChild(iframe, this);
-    }
-
+    (function (d) {
+        var wf = d.createElement('script'), s = d.currentScript;
+        wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
+        wf.async = true;
+        wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
+        wf.setAttribute('crossorigin', 'anonymous');
+        s.parentNode.insertBefore(wf, s);
+    })(document);
 </script>
+<script src="https://use.fontawesome.com/29e42826d0.js" async></script>
+<script src="{{ scriptPath }}/optimization.js" defer></script>
 </body>
 </html>

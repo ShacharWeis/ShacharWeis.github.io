@@ -161,7 +161,7 @@ gulp.task('static', () => {
 
 // Templates Task
 gulp.task('templates', () => {
-    return gulp.src(`${paths.src.template}/**/*.tpl`)
+    return gulp.src(`${paths.src.template}/**/*.html`)
         .pipe(nunjucksRender({
             path: [paths.src.template],
             data: {
@@ -171,9 +171,9 @@ gulp.task('templates', () => {
                 staticPath: './static',
                 composerPath: './app'
             },
-            ext: '.html'
+            ext: '.php'
         }))
-        .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
+        // .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
         .pipe(gulp.dest(paths.dest.template))
         .on('end', (err) => {
             emitLog('template', err);
