@@ -84,6 +84,7 @@
     })(document);
 </script>
 <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
-<script src="{{ scriptPath }}/optimization.js" defer></script>
+<script src="{{ scriptPath }}/optimization.js" async></script>
+<script src="{{ scriptPath }}/submission.js" async></script>
 </body>
 </html>
