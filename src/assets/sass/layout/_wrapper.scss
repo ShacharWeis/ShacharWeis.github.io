@@ -120,7 +120,7 @@
 
     &:after {
         @include vendor('transform', 'scaleY(-1)');
-        bottom: (_size(wrapper-edges, large) * -1);
+        bottom: (_size(wrapper-edges, large) * -1) + 0.1em;
         left: 0;
     }
 

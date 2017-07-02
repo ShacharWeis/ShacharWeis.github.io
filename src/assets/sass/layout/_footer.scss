@@ -8,7 +8,6 @@
 
 #footer {
     margin-bottom: 0;
-    padding-bottom: 6.5em;
     &::after {
         display: none;
     }
@@ -64,27 +63,7 @@
         }
     }
 
-    @include breakpoint(large) {
-
-        background-color: _palette(bg);
-
-        background-image: linear-gradient(to top, transparentize(_palette(bg), 0.2), transparentize(_palette(bg), 0.2)),
-        url('../../images/bg.jpg');
-
-        background-size: auto,
-        cover;
-
-        background-position: center,
-        center;
-
-        margin-top: (_size(wrapper-edges, large) * -1);
-        padding-top: _size(wrapper-edges, large);
-
-    }
-
     @include breakpoint(medium) {
-        margin-top: (_size(wrapper-edges, medium) * -1);
-        padding-top: _size(wrapper-edges, medium);
 
         .inner {
             @include padding(3em, 3em);
@@ -108,8 +87,6 @@
     }
 
     @include breakpoint(small) {
-        margin-top: (_size(wrapper-edges, small) * -1);
-        padding-top: _size(wrapper-edges, small);
 
         .inner {
             @include padding(2em, 2em);

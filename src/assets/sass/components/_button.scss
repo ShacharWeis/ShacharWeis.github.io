@@ -31,6 +31,7 @@ button,
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+    margin-bottom: 0.8em;
 
     &:hover {
         background-color: _palette(border-bg);
@@ -85,7 +86,4 @@ button,
         opacity: 0.25;
     }
 
-    @include breakpoint(xsmall) {
-        padding: 0;
-    }
 }
