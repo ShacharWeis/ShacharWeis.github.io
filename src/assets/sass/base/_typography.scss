@@ -40,9 +40,14 @@
 		color: _palette(fg-bold);
 		text-decoration: none;
 
+
 		&:hover {
 			border-bottom-color: transparent;
 			color: _palette(fg-bold) !important;
+		}
+
+		&:not(.button) {
+			font-weight: _font(weight-heading-bold);
 		}
 
 		&.special:not(.button) {
@@ -51,7 +56,6 @@
 			display: block;
 			font-family: _font(family-heading);
 			font-size: 0.8em;
-			font-weight: _font(weight-heading-bold);
 			letter-spacing: _font(kern-heading);
 			margin: 0 0 _size(element-margin) 0;
 			text-transform: uppercase;

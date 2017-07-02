@@ -161,7 +161,7 @@ gulp.task('static', () => {
 
 // Templates Task
 gulp.task('templates', () => {
-    return gulp.src(`${paths.src.template}/**/*.tpl`)
+    return gulp.src(`${paths.src.template}/**/*.html`)
         .pipe(nunjucksRender({
             path: [paths.src.template],
             data: {
