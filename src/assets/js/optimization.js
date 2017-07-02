@@ -17,15 +17,16 @@ function initYoutube() {
         [...v].forEach((value,key) => {
             div = document.createElement('div');
             div.setAttribute('data-id', v[key].dataset.id);
-            div.innerHTML = youtubeThumb(v[key].dataset.id);
+            div.setAttribute('data-name',v[key].dataset.name);
+            div.innerHTML = youtubeThumb(v[key].dataset.id,v[key].dataset.name);
             div.onclick = youtubeIframe;
             v[key].appendChild(div);
         });
     }
 }
 
-function youtubeThumb(id) {
-    const thumb = `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="youtube video placeholder">`,
+function youtubeThumb(id,name) {
+    const thumb = `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${name} Play Button">`,
         play = '<div class="play"></div>';
     return thumb + play;
 }
@@ -46,15 +47,16 @@ function initSketchfab() {
         [...v].forEach((value,key) => {
             div = document.createElement('div');
             div.setAttribute('data-id', v[key].dataset.id);
-            div.innerHTML = sketchFabThumb(v[key].dataset.id);
+            div.setAttribute('data-id', v[key].dataset.name);
+            div.innerHTML = sketchFabThumb(v[key].dataset.id,v[key].dataset.name);
             div.onclick = sketchFabIframe;
             v[key].appendChild(div);
         });
     }
 }
 
-function sketchFabThumb(id) {
-    const thumb = `<img src="./assets/images/${id}.jpg" alt="sketchfab placeholder">`,
+function sketchFabThumb(id,name) {
+    const thumb = `<img src="./assets/images/${id}.jpg" alt="${name} Play Button">`,
         play = '<div class="play"></div>';
     return thumb + play;
 }
