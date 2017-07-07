@@ -2,7 +2,11 @@
     "name": "shacharweis/shacharweis.github.io",
     "type": "project",
     "require": {
-        "sendgrid/sendgrid": "^5.5"
+        "sendgrid/sendgrid": "^5.5",
+        "vlucas/phpdotenv": "^2.4",
+        "symfony/http-foundation": "^3.3",
+        "waavi/sanitizer": "^1.0",
+        "respect/validation": "^1.1"
     },
     "config": {
       "vendor-dir": "public/app/vendor"

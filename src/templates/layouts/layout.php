@@ -1,3 +1,16 @@
+<?php
+
+    require_once __DIR__.'/app/vendor/autoload.php';
+
+    use Symfony\Component\HttpFoundation\Session\Session;
+
+    $session = new Session();
+    $session->start();
+
+    $token = bin2hex(random_bytes(32));
+    $session->set('name', $token);
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="EN">

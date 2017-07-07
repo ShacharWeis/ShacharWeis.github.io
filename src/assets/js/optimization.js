@@ -2,10 +2,13 @@
 
 NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
 
+import smoothScroll from 'smooth-scroll';
+
 document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
         initYoutube();
         initSketchfab();
+        smoothScroll.init();
     }
 };
 
@@ -14,18 +17,18 @@ function initYoutube() {
         v = document.getElementsByClassName('youtubePlayer');
 
     if (v.length > 0) {
-        [...v].forEach((value,key) => {
+        [...v].forEach((value, key) => {
             div = document.createElement('div');
             div.setAttribute('data-id', v[key].dataset.id);
-            div.setAttribute('data-name',v[key].dataset.name);
-            div.innerHTML = youtubeThumb(v[key].dataset.id,v[key].dataset.name);
+            div.setAttribute('data-name', v[key].dataset.name);
+            div.innerHTML = youtubeThumb(v[key].dataset.id, v[key].dataset.name);
             div.onclick = youtubeIframe;
             v[key].appendChild(div);
         });
     }
 }
 
-function youtubeThumb(id,name) {
+function youtubeThumb(id, name) {
     const thumb = `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${name} Play Button">`,
         play = '<div class="play"></div>';
     return thumb + play;
@@ -44,18 +47,18 @@ function initSketchfab() {
         v = document.getElementsByClassName('sketchfabPlayer');
 
     if (v.length > 0) {
-        [...v].forEach((value,key) => {
+        [...v].forEach((value, key) => {
             div = document.createElement('div');
             div.setAttribute('data-id', v[key].dataset.id);
             div.setAttribute('data-id', v[key].dataset.name);
-            div.innerHTML = sketchFabThumb(v[key].dataset.id,v[key].dataset.name);
+            div.innerHTML = sketchFabThumb(v[key].dataset.id, v[key].dataset.name);
             div.onclick = sketchFabIframe;
             v[key].appendChild(div);
         });
     }
 }
 
-function sketchFabThumb(id,name) {
+function sketchFabThumb(id, name) {
     const thumb = `<img src="./assets/images/${id}.jpg" alt="${name} Play Button">`,
         play = '<div class="play"></div>';
     return thumb + play;

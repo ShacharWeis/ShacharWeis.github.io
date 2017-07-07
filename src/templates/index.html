@@ -1,4 +1,4 @@
-{% extends "./layouts/layout.base" %}
+{% extends "./layouts/layout.php" %}
 
 {% block content %}
 <section class="wrapper spotlight style1" style="margin-top: 40%;">
@@ -11,7 +11,7 @@
                 software & hardware solutions. We thrive in the space between code and the physical world and we
                 develop solutions that sense, manipulate and move around in the environment. </p>
             <p>
-                <a href="#footer" class="button" title="Click here to contact Us">Contact Us</a>
+                <a href="#footer" data-scroll class="button" title="Click here to contact Us">Contact Us</a>
             </p>
         </div>
     </div>
@@ -271,7 +271,9 @@
             <li class="fa-wordpress"><a href="https://callmevice.com/">CallMeVice.com</a></li>
         </ul>
 
-        <form method="post" action="#">
+        <form method="post" action="<?php echo '/app/submit.php'; ?>">
+            <input type="hidden" name="csrfToken" value="<?php echo $token; ?>" />
+            <input type="hidden" name="website" value="" />
             <div class="field">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name"/>
