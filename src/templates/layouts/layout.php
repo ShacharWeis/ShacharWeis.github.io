@@ -8,7 +8,7 @@
     $session->start();
 
     $token = bin2hex(random_bytes(32));
-    $session->set('name', $token);
+    $session->set('token', $token);
 ?>
 
 <!DOCTYPE HTML>
