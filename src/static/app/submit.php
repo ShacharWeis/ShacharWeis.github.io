@@ -42,12 +42,28 @@ class Submit
 
         $this->config->sendgridAPIKey = getenv('SENDGRID_KEY');
 
-        $this->config->filters = [
+        $this->config->formFields = [
+            'csrfToken',
+            'website',
+            'name',
+            'email',
+            'message'
+        ];
+
+        $this->config->formFilters = [
             'csrfToken' => 'trim|escape|cast:string',
             'website' => 'escape|cast:string',
             'name' => 'trim|escape|capitalize|cast:string',
             'email' => 'trim|escape|lowercase|cast:string',
             'message' => 'trim|escape|cast:string',
+        ];
+
+        $this->config->formRule = [
+            'csrfToken' => v::alnum()->notEmpty()->noWhitespace()->setName('csrfToken'),
+            'website' => v::not(v::notEmpty())->setName('website'),
+            'name' => v::alpha()->notEmpty()->setName('name'),
+            'email' => v::email()->notEmpty()->noWhitespace()->setName('email'),
+            'message' => v::alnum()->notEmpty()->noWhitespace()->setName('message')
         ];
     }
 
@@ -55,11 +71,10 @@ class Submit
     {
         // Sanitize Data
         $sanitizedData = $this->formSanitize($this->config->formData);
-        var_dump($sanitizedData);
 
         // Validate Data
         $validation = $this->formValidation($sanitizedData);
-        if ($validation === FALSE) {
+        if (!empty($validation)) {
             return $this->sendErrorResponse('validation error');
         }
 
@@ -83,23 +98,40 @@ class Submit
             return $this->sendErrorResponse('token match error');
         }
 
-        // Send email via sendgrid
+        // Send email via service
+        $transmission = $this->formTransmition($sanitizedData);
+        if ($transmission === FALSE) {
+            return $this->sendErrorResponse('service error');
+        }
 
         // Return response
-
         $this->sendCompletionResponse('sent');
     }
 
     private function formSanitize($data)
     {
-        $sanitized = new Sanitizer($data, $this->config->filters);
+        $sanitized = new Sanitizer($data, $this->config->formFilters);
 
         return $sanitized->sanitize();
     }
 
     private function formValidation($data)
     {
-        return $data;
+        $errors = [];
+
+        foreach ($data as $key => $value) {
+            try {
+                $this->config->formRule[$key]->check($value);
+            } catch (\InvalidArgumentException $e) {
+                $errors[$key] = $e->getMessage();
+            }
+        }
+        return $errors;
+    }
+
+    private function formTransmition($data)
+    {
+        var_dump('sent message');
     }
 
     private function sendErrorResponse($message)

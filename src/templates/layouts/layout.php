@@ -7,8 +7,13 @@
     $session = new Session();
     $session->start();
 
-    $token = bin2hex(random_bytes(32));
-    $session->set('token', $token);
+    if($session->has('token')) {
+        $token = $session->get('token');
+    } else {
+        $token = bin2hex(random_bytes(32));
+        $session->set('token', $token);
+    }
+
 ?>
 
 <!DOCTYPE HTML>
