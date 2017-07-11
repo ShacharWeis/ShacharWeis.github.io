@@ -270,8 +270,11 @@
             <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39">@Vice_Packet39</a></li>
             <li class="fa-wordpress"><a href="https://callmevice.com/">CallMeVice.com</a></li>
         </ul>
+        <form method="post" id="contactForm" action="<?php echo '/app/submit.php'; ?>">
+            <pre>
 
-        <form method="post" action="<?php echo '/app/submit.php'; ?>">
+                <?php var_dump($session->getFlashBag()->all()); ?>
+            </pre>
             <input type="hidden" name="csrfToken" value="<?php echo $token; ?>" />
             <input type="hidden" name="website" value="" />
             <div class="field">
