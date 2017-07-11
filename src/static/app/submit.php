@@ -34,14 +34,19 @@ class Submit
 
     private function setup()
     {
+        // Capture Request and Session
         $this->config->formData = $this->request->request->all();
+        $this->config->referer = $this->request->headers->get('referer')
         $this->config->sessionToken = $this->session->get('token');
 
+        // Define Honeypot and CSRF fields
         $this->config->honeyPot = 'website';
         $this->config->formCSRF = 'csrfToken';
 
+        // Define Sendgrid API Key
         $this->config->sendgridAPIKey = getenv('SENDGRID_KEY');
 
+        // Define Form fields
         $this->config->formFields = [
             'csrfToken',
             'website',
@@ -50,6 +55,7 @@ class Submit
             'message'
         ];
 
+        // Define form field sanitization rules
         $this->config->formFilters = [
             'csrfToken' => 'trim|escape|cast:string',
             'website' => 'escape|cast:string',
@@ -58,6 +64,7 @@ class Submit
             'message' => 'trim|escape|cast:string',
         ];
 
+        // Define validation rules
         $this->config->formRule = [
             'csrfToken' => v::alnum()->notEmpty()->noWhitespace()->setName('csrfToken'),
             'website' => v::not(v::notEmpty())->setName('website'),
@@ -75,6 +82,7 @@ class Submit
         // Validate Data
         $validation = $this->formValidation($sanitizedData);
         if (!empty($validation)) {
+            $this->session->getFlashBag()->set('errors', ['validation' => $validation]);
             return $this->sendErrorResponse('validation error');
         }
 
@@ -126,6 +134,7 @@ class Submit
                 $errors[$key] = $e->getMessage();
             }
         }
+
         return $errors;
     }
 
