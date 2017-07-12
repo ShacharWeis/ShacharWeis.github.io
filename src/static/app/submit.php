@@ -16,6 +16,30 @@ class Submit
 {
 
     protected $config;
+    protected $formData;
+    protected $referer;
+    protected $sessionToken;
+    protected $formFields = [
+        'csrfToken',
+        'website',
+        'name',
+        'email',
+        'message'
+    ];
+    protected $formFilters = [
+        'csrfToken' => 'trim|escape|cast:string',
+        'website' => 'escape|cast:string',
+        'name' => 'trim|escape|capitalize|cast:string',
+        'email' => 'trim|escape|lowercase|cast:string',
+        'message' => 'trim|escape|cast:string',
+    ];
+    protected $formRules = [
+        'csrfToken' => v::alnum()->notEmpty()->noWhitespace()->setName('csrfToken'),
+        'website' => v::not(v::notEmpty())->setName('website'),
+        'name' => v::alpha()->notEmpty()->setName('name'),
+        'email' => v::email()->notEmpty()->noWhitespace()->setName('email'),
+        'message' => v::alnum()->notEmpty()->noWhitespace()->setName('message')
+    ];
 
     public function __construct()
     {
