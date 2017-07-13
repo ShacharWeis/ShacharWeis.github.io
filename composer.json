@@ -2,11 +2,13 @@
     "name": "shacharweis/shacharweis.github.io",
     "type": "project",
     "require": {
-        "sendgrid/sendgrid": "^5.5",
         "vlucas/phpdotenv": "^2.4",
         "symfony/http-foundation": "^3.3",
         "waavi/sanitizer": "^1.0",
-        "respect/validation": "^1.1"
+        "respect/validation": "^1.1",
+        "mailgun/mailgun-php": "^2.3",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message": "^1.6"
     },
     "config": {
       "vendor-dir": "public/app/vendor"
