@@ -145,7 +145,7 @@ class Submit
 
         // Return response
         $this->setFlashBag('complete', 'The form has been sent successfully');
-        $this->sendCompletionResponse('sent');
+        return $this->sendCompletionResponse('sent');
     }
 
     /**
