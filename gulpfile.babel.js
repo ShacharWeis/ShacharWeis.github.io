@@ -151,7 +151,7 @@ gulp.task('images', () => {
 
 // Static Files
 gulp.task('static', () => {
-    return gulp.src(`${paths.src.static}/**/*`)
+    return gulp.src(`${paths.src.static}/**/*`, {dot: true})
         .pipe(newer(paths.dest.static))
         .pipe(gulp.dest(paths.dest.static))
         .on('end', (err) => {

@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Waavi\Sanitizer\Sanitizer;
 use Respect\Validation\Validator as v;
+use Mailgun\Mailgun;
 
 new Submit();
 
@@ -22,7 +23,8 @@ class Submit
     protected $formLocation;
     protected $honeyPotName;
     protected $formCSRFName;
-    protected $sendgridAPIKey;
+    protected $mailgunAPIKey;
+    protected $mailgunDomain;
     protected $formFields;
     protected $formFilters;
     protected $formRules;
@@ -59,8 +61,9 @@ class Submit
         $this->honeyPotName = 'website';
         $this->formCSRFName = 'csrfToken';
 
-        // Define Sendgrid API Key
-        $this->sendgridAPIKey = getenv('SENDGRID_KEY');
+        // Define Mailgun Keys
+        $this->mailgunAPIKey = getenv('MAILGUN_KEY');
+        $this->mailgunDomain = getenv('MAILGUN_DOMAIN');
 
         // Define Form fields
         $this->formFields = [
