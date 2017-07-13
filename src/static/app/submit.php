@@ -25,6 +25,7 @@ class Submit
     protected $formCSRFName;
     protected $mailgunAPIKey;
     protected $mailgunDomain;
+    protected $mailgunRecipient;
     protected $formFields;
     protected $formFilters;
     protected $formRules;
@@ -64,6 +65,7 @@ class Submit
         // Define Mailgun Keys
         $this->mailgunAPIKey = getenv('MAILGUN_KEY');
         $this->mailgunDomain = getenv('MAILGUN_DOMAIN');
+        $this->mailgunRecipient = getenv('MAILGUN_RECIPIENT');
 
         // Define Form fields
         $this->formFields = [
@@ -89,7 +91,7 @@ class Submit
             'website' => v::not(v::notEmpty())->setName('website'),
             'name' => v::alpha()->notEmpty()->setName('name'),
             'email' => v::email()->notEmpty()->noWhitespace()->setName('email'),
-            'message' => v::alnum()->notEmpty()->noWhitespace()->setName('message')
+            'message' => v::alnum('-,.;:\'=+"')->notEmpty()->setName('message')
         ];
 
         // Custom Error Messages for various errors
@@ -151,21 +153,11 @@ class Submit
         return $this->sendCompletionResponse('sent');
     }
 
-    /**
-     * @param $key
-     * @param $data
-     * @return mixed
-     */
     private function setFlashBag($key, $data)
     {
         return $this->session->getFlashBag()->set($key, $data);
     }
 
-    /**
-     * @param $data
-     * @param $filters
-     * @return array
-     */
     private function formSanitize($data, $filters)
     {
         $sanitized = new Sanitizer($data, $filters);
@@ -173,11 +165,6 @@ class Submit
         return $sanitized->sanitize();
     }
 
-    /**
-     * @param $data
-     * @param $rules
-     * @return array
-     */
     private function formValidation($data, $rules)
     {
         $errors = [];
@@ -195,9 +182,17 @@ class Submit
 
     private function formTransmission($data)
     {
-        var_dump('sent message');
-        var_dump($data);
-        return true;
+        $mailgun = Mailgun::create($this->mailgunAPIKey);
+
+        $mailgun->messages()->send($this->mailgunDomain, [
+            'from' => 'info@packet39.com',
+            'h:Reply-To' => $data['name'] .' <'. $data['email'].'>',
+            'to' => $this->mailgunRecipient,
+            'subject' => 'Contact Form Submission from packet39.com',
+            'text' => $data['message']
+        ]);
+
+        return $mailgun;
     }
 
     private function sendErrorResponse($message)
