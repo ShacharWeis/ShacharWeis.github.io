@@ -5,7 +5,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Waavi\Sanitizer\Sanitizer;
 use Respect\Validation\Validator as v;
@@ -98,7 +97,7 @@ class Submit
         $this->formErrorMsg = [
             'honeypot' => 'There was an issue submitting the form, please try again.',
             'token' => 'There was an issue submitting the form, please try again.',
-            'serviceError' => 'There was an issue sending the form, please try again later.'
+            'serviceError' => 'There was an issue sending your message, please try again later.'
         ];
     }
 
@@ -114,43 +113,44 @@ class Submit
         $validation = $this->formValidation($sanitizedData, $this->formRules);
         if (!empty($validation)) {
             $this->setFlashBag('errors', ['validation' => $validation]);
-            return $this->sendErrorResponse('Validation error');
+            return $this->sendErrorResponse();
         }
 
         // Check honeypot
         if (!empty($sanitizedData[$this->honeyPotName])) {
             $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['honeypot']]);
-            return $this->sendErrorResponse('Honeypot error');
+            return $this->sendErrorResponse();
         }
 
         // Check if form has a token
         if (empty($sanitizedData['csrfToken'])) {
             $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['token']]);
-            return $this->sendErrorResponse('Token Error');
+            return $this->sendErrorResponse();
         }
 
         // Check if session has a token
         if (empty($this->sessionToken)) {
             $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['token']]);
-            return $this->sendErrorResponse('Token Error');
+            return $this->sendErrorResponse();
         }
 
         // Compare Tokens
         if (!hash_equals($this->sessionToken, $sanitizedData['csrfToken'])) {
             $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['token']]);
-            return $this->sendErrorResponse('Token Error');
+            return $this->sendErrorResponse();
         }
 
         // Send email via service
         $transmission = $this->formTransmission($sanitizedData);
         if ($transmission === FALSE) {
             $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['serviceError']]);
-            return $this->sendErrorResponse('Service error');
+            return $this->sendErrorResponse();
         }
 
         // Return response
+        $this->session->getFlashBag()->clear();
         $this->setFlashBag('complete', 'The form has been sent successfully');
-        return $this->sendCompletionResponse('sent');
+        return $this->sendCompletionResponse();
     }
 
     private function setFlashBag($key, $data)
@@ -189,30 +189,20 @@ class Submit
             'h:Reply-To' => $data['name'] .' <'. $data['email'].'>',
             'to' => $this->mailgunRecipient,
             'subject' => 'Contact Form Submission from packet39.com',
-            'text' => $data['message']
+            'html' => '<strong>Form Message: </strong><br><br>' . $data['message']
         ]);
 
         return $mailgun;
     }
 
-    private function sendErrorResponse($message)
+    private function sendErrorResponse()
     {
-        if ($this->request->isXmlHttpRequest()) {
-            $response = new Response($message, 400);
-            return $response->send();
-        }
-
         $response = new RedirectResponse('/', 302);
         return $response->send();
     }
 
-    private function sendCompletionResponse($message)
+    private function sendCompletionResponse()
     {
-        if ($this->request->isXmlHttpRequest()) {
-            $response = new Response($message, 201);
-            return $response->send();
-        }
-
         $response = new RedirectResponse('/', 302);
         return $response->send();
     }
