@@ -1,9 +1,9 @@
-{% extends "./layouts/layout.base" %}
+{% extends "./layouts/layout.php" %}
 
 {% block content %}
 <section class="wrapper spotlight style1" style="margin-top: 40%;">
     <div class="inner">
-        <img src="{{ imagePath }}/pic01.jpg" alt="" class="image"/>
+        <img src="{{ imagePath }}/pic01.jpg" alt="Person standing on an interactive display" class="image"/>
         <div class="content">
             <h1 class="major">Packet39</h1>
             <strong class="major focus">Code outside the box</strong>
@@ -11,7 +11,7 @@
                 software & hardware solutions. We thrive in the space between code and the physical world and we
                 develop solutions that sense, manipulate and move around in the environment. </p>
             <p>
-                <a href="#footer" class="button" title="Click here to contact Us">Contact Us</a>
+                <a href="#footer" data-scroll class="button" title="Click here to contact Us">Contact Us</a>
             </p>
         </div>
     </div>
@@ -20,7 +20,7 @@
 
 <section class="wrapper alt spotlight style2">
     <div class="inner">
-        <img src="{{ imagePath }}/pic04.jpg" alt="" class="image"/>
+        <img src="{{ imagePath }}/pic04.jpg" alt="Person using a VR headset" class="image"/>
         <div class="content">
             <h2 class="major">Virtual Reality</h2>
             <p>We design and develop Virual Reality, Augmented Reality and Mixed Reality games and experiences.</p>
@@ -33,7 +33,7 @@
 
 <section class="wrapper spotlight style1">
     <div class="inner">
-        <img src="{{ imagePath }}/pewpew.png" alt="" class="image"/>
+        <img src="{{ imagePath }}/pewpew.png" alt="Augmented realited demo of Alien Attack" class="image"/>
         <div class="content">
             <h2 class="major">Augmented Reality</h2>
             <p>Bring to life static everyday objects, from buisness cards, to books, magazines, brochures and
@@ -63,7 +63,7 @@
 
 <section class="wrapper alt spotlight style2">
     <div class="inner">
-        <img src="{{ imagePath }}/pic02.jpg" alt="" class="image"/>
+        <img src="{{ imagePath }}/pic02.jpg" alt="Example of computer code" class="image"/>
         <div class="content">
             <h2 class="major">Software</h2>
             <p>We develop software under Windows or Linux, using C# & .Net, Matlab, C++, Java or Python. We are
@@ -85,7 +85,7 @@
 
 <section class="wrapper spotlight style3">
     <div class="inner">
-        <img src="{{ imagePath }}/pic03.jpg" alt="" class="image"/>
+        <img src="{{ imagePath }}/pic03.jpg" alt="A wide range of hardware and sensors on a table" class="image"/>
         <div class="content">
             <h2 class="major">Hardware & Sensors</h2>
             <p>We can recommend the hardware most suited for your needs, or work with the equipment you already
@@ -168,7 +168,7 @@
                     <div class="intrinsicWrapper">
                         <img
                                 src="{{ imagePath }}/3d_print.jpg"
-                                alt=""/>
+                                alt="High resolution 3D printer example"/>
                     </div>
                 </div>
                 <br>
@@ -197,7 +197,7 @@
         <h2 class="major">The Team</h2>
         <section class="features">
             <article>
-                <div class="image"><img src="{{ imagePath }}/vice.png" alt=""/></div>
+                <div class="image"><img src="{{ imagePath }}/vice.png" alt="Shachar 'Vice' Weis profile photo"/></div>
                 <h3 class="major">Shachar "Vice" Weis</h3>
                 <p>Shachar is a software developer with over 20 years of experience. He has worked in many
                     fields and disciplines, from ancient mainframes to tiny system-on-chip units. Shachar has
@@ -213,7 +213,7 @@
 
             </article>
             <article>
-                <div class="image"><img src="{{ imagePath }}/lena.png" alt=""/></div>
+                <div class="image"><img src="{{ imagePath }}/lena.png" alt="Dr. Lena Gorelick profile photo"/></div>
                 <h3 class="major">Lena Gorelick</h3>
                 <p> Dr. Gorelick is currently a research scientist with the Computer Science Department at the
                     University of Western Ontario, London, Canada. Both her MSc (2004) and PhD (2009) are in
@@ -228,7 +228,7 @@
             </article>
 
             <article>
-                <div class="image"><img src="{{ imagePath }}/hossam.png" alt=""/></div>
+                <div class="image"><img src="{{ imagePath }}/hossam.png" alt="Hossam Issacs profile photo"/></div>
                 <h3 class="major">Hossam Issacs</h3>
                 <p> Hossam is doing his post-doctorate at the Computer Science Department at the University of
                     Western Ontario, London, Canada. Publications and CV can be found on Hossam's website: <a
@@ -236,7 +236,7 @@
             </article>
 
             <article>
-                <div class="image"><img src="{{ imagePath }}/sarah.jpg" alt=""/></div>
+                <div class="image"><img src="{{ imagePath }}/sarah.jpg" alt="Sarah Legault profile photo"/></div>
                 <h3 class="major">Sarah Legault </h3>
                 <p>Sarah is an award winning filmmaker, director, producer, animator and writer. Her first
                     stop-motion animation Dear Love earned the Best Animated Short Film award at the 2014
@@ -270,24 +270,43 @@
             <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39">@Vice_Packet39</a></li>
             <li class="fa-wordpress"><a href="https://callmevice.com/">CallMeVice.com</a></li>
         </ul>
+        <form method="post" id="contactForm" action="<?php echo '/app/submit.php'; ?>">
 
-        <!--<form method="post" action="#">
+            <?php
+            $response = $session->getFlashBag()->get('response');
+            foreach($response as $key => $value) :
+            ?>
+                <div class="notifications">
+                    <p><?php echo $value; ?></p>
+                </div>
+            <?php endforeach; ?>
+
+            <?php $errors = $session->getFlashBag()->get('validation'); ?>
+            <?php $flashData = $session->getFlashBag()->get('data') ?? []; ?>
+            <input type="hidden" name="csrfToken" value="<?php echo $token; ?>"/>
+            <input type="hidden" name="website" value=""/>
             <div class="field">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name"/>
+                <input type="text" name="name" id="name"
+                       value="<?php if(!empty($flashData['form']['name'])) { echo $flashData['form']['name']; } ?>"/>
+                <span><?php if(!empty($errors['validation']['name'])) { echo $errors['validation']['name']; } ?></span>
             </div>
             <div class="field">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email"/>
+                <input type="email" name="email" id="email"
+                       value="<?php if(!empty($flashData['form']['email'])) { echo $flashData['form']['email']; } ?>"/>
+                <span><?php if(!empty($errors['validation']['email'])) { echo $errors['validation']['email']; } ?></span>
             </div>
             <div class="field">
                 <label for="message">Message</label>
-                <textarea name="message" id="message" rows="4"></textarea>
+                <textarea name="message" id="message"
+                          rows="4"><?php if(!empty($flashData['form']['message'])) { echo $flashData['form']['message']; } ?></textarea>
+                <span><?php if(!empty($errors['validation']['message'])) { echo $errors['validation']['message']; } ?></span>
             </div>
             <ul class="actions">
                 <li><input type="submit" value="Send Message"/></li>
             </ul>
-        </form>-->
+        </form>
 
     </div>
 </section>

@@ -1,3 +1,21 @@
+<?php
+
+    require_once __DIR__.'/app/vendor/autoload.php';
+
+    use Symfony\Component\HttpFoundation\Session\Session;
+
+    $session = new Session();
+    $session->start();
+
+    if($session->has('token')) {
+        $token = $session->get('token');
+    } else {
+        $token = bin2hex(random_bytes(32));
+        $session->set('token', $token);
+    }
+
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="EN">
@@ -23,16 +41,16 @@
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-    <title>Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions</title>
+    <title>Packet39 | Virtual Reality, Augmented Reality, Custom Solutions</title>
     <meta name="keywords"
           content="Virtual Reality, Augmented Reality, Packet39, Custom hardware,software, software development, developer, applications, computer vision, 3d printing, machine learning, openCV">
     <meta name="description"
-          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications.">
     <link rel="canonical" href="http://packet39.com/">
 
     <!--FACEBOOK-->
     <meta property="og:title"
-          content="Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions">
+          content="Packet39 | Virtual Reality, Augmented Reality, Custom Solutions">
     <meta property="og:site_name" content="Packet39">
     <meta property="og:url" content="http://packet39.com/">
     <meta property="og:description"
@@ -40,6 +58,12 @@
     <meta property="og:image" content="">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Vice_Packet39">
+    <meta name="twitter:title" content="Packet39 | Virtual Reality, Augmented Reality, Custom Solutions">
+    <meta name="twitter:description" content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+    <meta name="twitter:image" content="">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ staticPath }}/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ staticPath }}/favicon/favicon-32x32.png">
@@ -67,7 +91,7 @@
 </div>
 
 <!-- Scripts -->
-<script>
+<script id="webfontLoader">
     WebFontConfig = {
         google: {
             families: ['Raleway:200,700', 'Source Sans Pro:300,600,300italic,600italic']
@@ -75,7 +99,7 @@
     };
 
     (function (d) {
-        var wf = d.createElement('script'), s = d.currentScript;
+        var wf = d.createElement('script'), s = d.getElementById('webfontLoader');
         wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
         wf.async = true;
         wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
@@ -84,6 +108,7 @@
     })(document);
 </script>
 <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
-<script src="{{ scriptPath }}/optimization.js" defer></script>
+<script src="{{ scriptPath }}/optimization.js" async></script>
+<script src="{{ scriptPath }}/submission.js" async></script>
 </body>
 </html>

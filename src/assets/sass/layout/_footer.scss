@@ -13,6 +13,7 @@
     }
     .inner {
         @include padding(5em, 0);
+        padding-bottom: 6em;
 
         @include vendor('display', 'flex');
         @include vendor('flex-direction', 'row');
