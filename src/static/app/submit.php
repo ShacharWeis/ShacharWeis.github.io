@@ -90,11 +90,12 @@ class Submit
             'website' => v::not(v::notEmpty())->setName('website'),
             'name' => v::alpha()->notEmpty()->setName('name'),
             'email' => v::email()->notEmpty()->noWhitespace()->setName('email'),
-            'message' => v::alnum('-,.;:\'=+"')->notEmpty()->setName('message')
+            'message' => v::alnum('!@#$%^&*()_+-=;:\'",.?')->notEmpty()->setName('message')
         ];
 
         // Custom Error Messages for various errors
         $this->formErrorMsg = [
+            'validation' => 'There was an issue with some of your information, please try again.',
             'honeypot' => 'There was an issue submitting the form, please try again.',
             'token' => 'There was an issue submitting the form, please try again.',
             'serviceError' => 'There was an issue sending your message, please try again later.'
@@ -112,45 +113,45 @@ class Submit
         // Validate Data
         $validation = $this->formValidation($sanitizedData, $this->formRules);
         if (!empty($validation)) {
-            $this->setFlashBag('errors', ['validation' => $validation]);
+            $this->setFlashBag('response', ['formIssue' => $this->formErrorMsg['validation']]);
+            $this->setFlashBag('validation', ['validation' => $validation]);
             return $this->sendErrorResponse();
         }
 
         // Check honeypot
         if (!empty($sanitizedData[$this->honeyPotName])) {
-            $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['honeypot']]);
+            $this->setFlashBag('response', ['formIssue' => $this->formErrorMsg['honeypot']]);
             return $this->sendErrorResponse();
         }
 
         // Check if form has a token
         if (empty($sanitizedData['csrfToken'])) {
-            $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['token']]);
+            $this->setFlashBag('response', ['formIssue' => $this->formErrorMsg['token']]);
             return $this->sendErrorResponse();
         }
 
         // Check if session has a token
         if (empty($this->sessionToken)) {
-            $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['token']]);
+            $this->setFlashBag('response', ['formIssue' => $this->formErrorMsg['token']]);
             return $this->sendErrorResponse();
         }
 
         // Compare Tokens
         if (!hash_equals($this->sessionToken, $sanitizedData['csrfToken'])) {
-            $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['token']]);
+            $this->setFlashBag('response', ['formIssue' => $this->formErrorMsg['token']]);
             return $this->sendErrorResponse();
         }
 
         // Send email via service
-//        $transmission = $this->formTransmission($sanitizedData);
-        $transmission === TRUE;
+        $transmission = $this->formTransmission($sanitizedData);
         if ($transmission === FALSE) {
-            $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['serviceError']]);
+            $this->setFlashBag('response', ['formIssue' => $this->formErrorMsg['serviceError']]);
             return $this->sendErrorResponse();
         }
 
         // Return response
         $this->session->getFlashBag()->clear();
-        $this->setFlashBag('complete', 'The form has been sent successfully');
+        $this->setFlashBag('response', 'The form has been sent successfully');
         return $this->sendCompletionResponse();
     }
 
@@ -198,13 +199,13 @@ class Submit
 
     private function sendErrorResponse()
     {
-        $response = new RedirectResponse('/', 302);
+        $response = new RedirectResponse('/'.$this->formLocation, 302);
         return $response->send();
     }
 
     private function sendCompletionResponse()
     {
-        $response = new RedirectResponse('/', 302);
+        $response = new RedirectResponse('/'.$this->formLocation, 302);
         return $response->send();
     }
 }
