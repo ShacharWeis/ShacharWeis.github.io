@@ -41,16 +41,16 @@
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-    <title>Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions</title>
+    <title>Packet39 | Virtual Reality, Augmented Reality, Custom Solutions</title>
     <meta name="keywords"
           content="Virtual Reality, Augmented Reality, Packet39, Custom hardware,software, software development, developer, applications, computer vision, 3d printing, machine learning, openCV">
     <meta name="description"
-          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications.">
     <link rel="canonical" href="http://packet39.com/">
 
     <!--FACEBOOK-->
     <meta property="og:title"
-          content="Packet39 - Virtual Reality, Augmented Reality, Custom software and hardware solutions">
+          content="Packet39 | Virtual Reality, Augmented Reality, Custom Solutions">
     <meta property="og:site_name" content="Packet39">
     <meta property="og:url" content="http://packet39.com/">
     <meta property="og:description"
@@ -58,6 +58,12 @@
     <meta property="og:image" content="">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Vice_Packet39">
+    <meta name="twitter:title" content="Packet39 | Virtual Reality, Augmented Reality, Custom Solutions">
+    <meta name="twitter:description" content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
+    <meta name="twitter:image" content="">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ staticPath }}/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ staticPath }}/favicon/favicon-32x32.png">
