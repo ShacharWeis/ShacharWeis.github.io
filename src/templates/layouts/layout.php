@@ -85,7 +85,7 @@
 </div>
 
 <!-- Scripts -->
-<script>
+<script id="webfontLoader">
     WebFontConfig = {
         google: {
             families: ['Raleway:200,700', 'Source Sans Pro:300,600,300italic,600italic']
@@ -93,7 +93,7 @@
     };
 
     (function (d) {
-        var wf = d.createElement('script'), s = d.currentScript;
+        var wf = d.createElement('script'), s = d.getElementById('webfontLoader');
         wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
         wf.async = true;
         wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');

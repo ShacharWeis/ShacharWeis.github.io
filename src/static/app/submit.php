@@ -141,7 +141,8 @@ class Submit
         }
 
         // Send email via service
-        $transmission = $this->formTransmission($sanitizedData);
+//        $transmission = $this->formTransmission($sanitizedData);
+        $transmission === TRUE;
         if ($transmission === FALSE) {
             $this->setFlashBag('errors', ['formIssue' => $this->formErrorMsg['serviceError']]);
             return $this->sendErrorResponse();
