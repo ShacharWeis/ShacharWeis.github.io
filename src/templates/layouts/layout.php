@@ -110,8 +110,8 @@ if ($session->has('token')) {
     },
     "contactPoint": {
     "@type": "ContactPoint",
-        "contactType": "Shachar 'Vice' Weis",
-        "telephone": "[+1-519-902-6191]",
+        "contactType": "sales",
+        "telephone": "+1-519-902-6191",
         "email": "vice@packet39.com"
     },
     "sameAs": [
