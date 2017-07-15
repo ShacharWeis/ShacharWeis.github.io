@@ -1,18 +1,18 @@
 <?php
 
-    require_once __DIR__.'/app/vendor/autoload.php';
+require_once __DIR__ . '/app/vendor/autoload.php';
 
-    use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Session;
 
-    $session = new Session();
-    $session->start();
+$session = new Session();
+$session->start();
 
-    if($session->has('token')) {
-        $token = $session->get('token');
-    } else {
-        $token = bin2hex(random_bytes(32));
-        $session->set('token', $token);
-    }
+if ($session->has('token')) {
+    $token = $session->get('token');
+} else {
+    $token = bin2hex(random_bytes(32));
+    $session->set('token', $token);
+}
 
 ?>
 
@@ -41,29 +41,30 @@
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-    <title>Packet39 | Virtual Reality, Augmented Reality, Custom Solutions</title>
-    <meta name="keywords"
-          content="Virtual Reality, Augmented Reality, Packet39, Custom hardware,software, software development, developer, applications, computer vision, 3d printing, machine learning, openCV">
+    <title>Packet39 | Virtual & Augmented Reality, Custom Solutions</title>
     <meta name="description"
-          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications.">
+          content="We develop custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for your needs.">
     <link rel="canonical" href="http://packet39.com/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Packet39">
 
     <!--FACEBOOK-->
     <meta property="og:title"
-          content="Packet39 | Virtual Reality, Augmented Reality, Custom Solutions">
+          content="Packet39 | Virtual & Augmented Reality, Custom Solutions">
     <meta property="og:site_name" content="Packet39">
     <meta property="og:url" content="http://packet39.com/">
     <meta property="og:description"
-          content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
-    <meta property="og:image" content="">
+          content="We develop custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for your needs.">
+    <meta property="og:image" content="http://packet39.com/assets/images/packet39-social.jpg">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Vice_Packet39">
-    <meta name="twitter:title" content="Packet39 | Virtual Reality, Augmented Reality, Custom Solutions">
-    <meta name="twitter:description" content="Packet39 develops custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for desktop, mobile or web.">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:title" content="Packet39 | Virtual & Augmented Reality, Custom Solutions">
+    <meta name="twitter:description"
+          content="We develop custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for your needs.">
+    <meta name="twitter:image" content="http://packet39.com/assets/images/packet39-social.jpg">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ staticPath }}/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ staticPath }}/favicon/favicon-32x32.png">
@@ -90,6 +91,35 @@
     </section>
 </div>
 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "Organization",
+    "name" : "Packet39",
+    "legalName" : "Packet39",
+    "url": "http://packet39.com/",
+    "logo": "http://packet39.com/assets/images/packet39-social.jpg",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "39 Raebrook Place",
+        "addressLocality": "London",
+        "addressRegion": "ON",
+        "postalCode": "N5X 2Z8",
+        "addressCountry": "Canada"
+    },
+    "contactPoint": {
+    "@type": "ContactPoint",
+        "contactType": "Shachar 'Vice' Weis",
+        "telephone": "[+1-519-902-6191]",
+        "email": "vice@packet39.com"
+    },
+    "sameAs": [
+        "https://twitter.com/Vice_Packet39",
+        "https://www.linkedin.com/company/packet39"
+    ]
+}
+</script>
 <!-- Scripts -->
 <script id="webfontLoader">
     WebFontConfig = {
