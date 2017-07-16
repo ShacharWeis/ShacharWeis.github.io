@@ -21,8 +21,8 @@ if ($session->has('token')) {
 <html lang="EN">
 
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
@@ -76,7 +76,6 @@ if ($session->has('token')) {
     <meta name="application-name" content="Packet39">
     <meta name="msapplication-config" content="{{ staticPath }}/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-
 
     <style><?php include '{{ stylePath }}/main.css' ?></style>
 </head>
@@ -139,6 +138,5 @@ if ($session->has('token')) {
 </script>
 <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
 <script src="{{ scriptPath }}/optimization.js" async></script>
-<script src="{{ scriptPath }}/submission.js" async></script>
 </body>
 </html>
