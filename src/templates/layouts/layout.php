@@ -79,7 +79,7 @@ if ($session->has('token')) {
 
     <style><?php include '{{ stylePath }}/main.css' ?></style>
 </head>
-<body style="background-image: url('./assets/images/main_small.jpg')">
+<body>
 
 <div id="page-wrapper">
 
