@@ -21,6 +21,9 @@ form {
                 margin-top: 0;
             }
         }
+        span {
+            color: crimson;
+        }
     }
 
     > :last-child {
@@ -180,7 +183,7 @@ input[type="radio"] {
     }
 }
 
-::-webkit-input-placeholder {
+::placeholder {
     color: _palette(fg-light) !important;
     opacity: 1.0;
 }
@@ -203,4 +206,16 @@ input[type="radio"] {
 .polyfill-placeholder {
     color: _palette(fg-light) !important;
     opacity: 1.0;
+}
+
+.notifications {
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5em;
+    background-color: #353849;
+    border-radius: 5px;
+    margin-bottom: 2em;
+    p {
+        margin: 0;
+    }
 }

@@ -5,3 +5,4 @@ sass_cache
 npm-debug.log
 
 /public/
+/src/static/app/.env
