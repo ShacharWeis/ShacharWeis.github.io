@@ -138,5 +138,6 @@ if ($session->has('token')) {
 </script>
 <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
 <script src="{{ scriptPath }}/optimization.js" async></script>
+<script src="https://embed.small.chat/T2V10NHEKG8A5QM0EP.js" async></script>
 </body>
 </html>
