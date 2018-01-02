@@ -152,7 +152,7 @@ gulp.task('images', () => {
 // Templates Task
 gulp.task('templates',['styles'], () => {
     const styleData = fs.readFileSync('./public/assets/css/main.css', 'utf8');
-    return gulp.src(`${paths.src.template}/**/*`)
+    return gulp.src(`${paths.src.template}/**/*.njk`)
         .pipe(nunjucksRender({
             path: [paths.src.template],
             data: {
