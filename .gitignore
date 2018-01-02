@@ -4,5 +4,8 @@ sass_cache
 .DS_store
 npm-debug.log
 
-/public/
+/public/assets
+/public/*.php
+/public/*.html
+/public/app/vendor
 /src/static/app/.env

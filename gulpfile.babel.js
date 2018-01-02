@@ -149,29 +149,23 @@ gulp.task('images', () => {
         });
 });
 
-// Static Files
-gulp.task('static', () => {
-    return gulp.src(`${paths.src.static}/**/*`, {dot: true})
-        .pipe(newer(paths.dest.static))
-        .pipe(gulp.dest(paths.dest.static))
-        .on('end', (err) => {
-            emitLog('static', err);
-        });
-});
-
 // Templates Task
-gulp.task('templates', () => {
-    return gulp.src(`${paths.src.template}/**/*.html`)
+gulp.task('templates',['styles'], () => {
+    const styleData = fs.readFileSync('./public/assets/css/main.css', 'utf8');
+    return gulp.src(`${paths.src.template}/**/*`)
         .pipe(nunjucksRender({
             path: [paths.src.template],
             data: {
+                styleData: styleData,
                 stylePath: './assets/css',
                 scriptPath: './assets/js',
                 imagePath: './assets/images',
                 staticPath: './static',
-                composerPath: './app'
+                composerPath: './app',
+                env: env
             },
             ext: '.php'
+
         }))
         // .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
         .pipe(gulp.dest(paths.dest.template))
@@ -182,12 +176,11 @@ gulp.task('templates', () => {
 
 // Watch Task
 gulp.task('watch', ['default'], () => {
-    gulp.watch(`${paths.src.static}/**/*`,['static']);
-    gulp.watch(`${paths.src.styles}/**/*.scss`,['styles']);
+    gulp.watch(`${paths.src.styles}/**/*.scss`,['templates']);
     gulp.watch(`${paths.src.scripts}/**/*.js`,['scripts']);
     gulp.watch(`${paths.src.template}/**/*`,['templates']);
     gulp.watch(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`,['images']);
 });
 
 // Compilation Task
-gulp.task('default', ['styles', 'scripts', 'images', 'templates', 'static']);
+gulp.task('default', ['styles', 'scripts', 'images', 'templates']);

@@ -1,27 +1,11 @@
-<?php
-
-require_once __DIR__ . '/app/vendor/autoload.php';
-
-use Symfony\Component\HttpFoundation\Session\Session;
-
-$session = new Session();
-$session->start();
-
-if ($session->has('token')) {
-    $token = $session->get('token');
-} else {
-    $token = bin2hex(random_bytes(32));
-    $session->set('token', $token);
-}
-
-?>
-
+{% if env === "production" %}
+    {% include '../components/session.php' %}
+{% endif %}
 <!DOCTYPE HTML>
 
 <html lang="EN">
 
 <head>
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,17 +62,42 @@ if ($session->has('token')) {
     <meta name="msapplication-config" content="{{ staticPath }}/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <style><?php include '{{ stylePath }}/main.css' ?></style>
+    <style>{{ styleData }}</style>
 </head>
 <body>
-
+{{ seoData["test"] }}
 <div id="page-wrapper">
-
-    <section id="wrapper">
+    <div id="wrapper">
         {% block content %}
 
         {% endblock %}
-    </section>
+        <section id="footer" class="wrapper alt style4">
+            <div class="inner">
+                <h2 class="major">Contact</h2>
+                <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
+                    for your project, free of charge and without commitment. </p>
+                <ul class="contact">
+                    <li class="fa-envelope"><a href="mailto:Vice@Packet39.com" title="Email Packet39">Vice@Packet39.com</a></li>
+                    <li class="fa-home">
+                        Packet39<br/>
+                        39 Raebrook Place<br/>
+                        London, ON, Canada<br/>
+                        N5X2Z8
+                    </li>
+                    <li class="fa-phone"><a href="tel:5199026191" title="Call Packet39">519-902-6191</a></li>
+                    <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39" target="_blank" title="Packet39 on Twitter">@Vice_Packet39</a></li>
+                    <li class="fa-linkedin"><a href="https://www.linkedin.com/company/packet39" target="_blank" title="Packet39 On LinkedIn">Packet39</a></li>
+                    <li class="fa-wordpress"><a href="https://callmevice.com/" target="_blank" title="Vice's Website">CallMeVice.com</a></li>
+                </ul>
+                {% if env === "production" %}
+                    {% include '../components/leadForm.php' %}
+                {% else %}
+                    <div id="contactForm"></div>
+                {% endif %}
+
+            </div>
+        </section>
+    </div>
 </div>
 
 
