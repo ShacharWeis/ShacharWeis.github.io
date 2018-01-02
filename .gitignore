@@ -6,6 +6,6 @@ npm-debug.log
 
 /public/assets
 /public/*.php
+!/public/app/*.php
 /public/*.html
 /public/app/vendor
-/src/static/app/.env
