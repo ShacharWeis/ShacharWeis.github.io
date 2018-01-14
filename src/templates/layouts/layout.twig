@@ -26,29 +26,29 @@
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-    <title>Packet39 | Virtual & Augmented Reality, Custom Solutions</title>
+    <title>{{ seoData['pageTitle'] }}</title>
     <meta name="description"
-          content="We develop custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for your needs.">
-    <link rel="canonical" href="http://packet39.com/">
+          content="{{ seoData['pageDescription'] }}">
+    <link rel="canonical" href="{{ seoData['pageURL'] }}">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Packet39">
 
     <!--FACEBOOK-->
     <meta property="og:title"
-          content="Packet39 | Virtual & Augmented Reality, Custom Solutions">
+          content="{{ seoData['pageTitle'] }}">
     <meta property="og:site_name" content="Packet39">
-    <meta property="og:url" content="http://packet39.com/">
+    <meta property="og:url" content="{{ seoData['pageURL'] }}">
     <meta property="og:description"
-          content="We develop custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for your needs.">
+          content="{{ seoData['pageDescription'] }}">
     <meta property="og:image" content="http://packet39.com/assets/images/packet39-social.jpg">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Vice_Packet39">
-    <meta name="twitter:title" content="Packet39 | Virtual & Augmented Reality, Custom Solutions">
+    <meta name="twitter:title" content="{{ seoData['pageTitle'] }}">
     <meta name="twitter:description"
-          content="We develop custom software and hardware solutions, Virtual Reality, Augmented Reality, computer vision and image processing applications for your needs.">
+          content="{{ seoData['pageDescription'] }}">
     <meta name="twitter:image" content="http://packet39.com/assets/images/packet39-social.jpg">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ staticPath }}/favicon/apple-touch-icon.png">
@@ -65,40 +65,52 @@
     <style>{{ styleData }}</style>
 </head>
 <body>
-{{ seoData["test"] }}
-<div id="page-wrapper">
+
+<header>
+
+    <nav>
+
+    </nav>
+</header>
+
+<main id="page-wrapper">
     <div id="wrapper">
         {% block content %}
 
         {% endblock %}
-        <section id="footer" class="wrapper alt style4">
-            <div class="inner">
-                <h2 class="major">Contact</h2>
-                <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
-                    for your project, free of charge and without commitment. </p>
-                <ul class="contact">
-                    <li class="fa-envelope"><a href="mailto:Vice@Packet39.com" title="Email Packet39">Vice@Packet39.com</a></li>
-                    <li class="fa-home">
-                        Packet39<br/>
-                        39 Raebrook Place<br/>
-                        London, ON, Canada<br/>
-                        N5X2Z8
-                    </li>
-                    <li class="fa-phone"><a href="tel:5199026191" title="Call Packet39">519-902-6191</a></li>
-                    <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39" target="_blank" title="Packet39 on Twitter">@Vice_Packet39</a></li>
-                    <li class="fa-linkedin"><a href="https://www.linkedin.com/company/packet39" target="_blank" title="Packet39 On LinkedIn">Packet39</a></li>
-                    <li class="fa-wordpress"><a href="https://callmevice.com/" target="_blank" title="Vice's Website">CallMeVice.com</a></li>
-                </ul>
-                {% if env === "production" %}
-                    {% include '../components/leadForm.php' %}
-                {% else %}
-                    <div id="contactForm"></div>
-                {% endif %}
-
-            </div>
-        </section>
     </div>
-</div>
+</main>
+
+<footer id="footer" class="wrapper alt style4">
+    <div class="inner">
+        <h2 class="major">Contact</h2>
+        <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
+            for your project, free of charge and without commitment. </p>
+        <ul class="contact">
+            <li class="fa-envelope"><a href="mailto:Vice@Packet39.com" title="Email Packet39">Vice@Packet39.com</a></li>
+            <li class="fa-home">
+                Packet39<br/>
+                39 Raebrook Place<br/>
+                London, ON, Canada<br/>
+                N5X2Z8
+            </li>
+            <li class="fa-phone"><a href="tel:5199026191" title="Call Packet39">519-902-6191</a></li>
+            <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39" target="_blank" title="Packet39 on Twitter">@Vice_Packet39</a></li>
+            <li class="fa-linkedin"><a href="https://www.linkedin.com/company/packet39" target="_blank" title="Packet39 On LinkedIn">Packet39</a></li>
+            <li class="fa-wordpress"><a href="https://callmevice.com/" target="_blank" title="Vice's Website">CallMeVice.com</a></li>
+        </ul>
+        {% if env === "production" %}
+            {% include '../components/leadForm.php' %}
+        {% else %}
+            <div id="contactForm"></div>
+        {% endif %}
+        <ul class="copyright">
+            <li>2018 © Packet39. All rights reserved.</li>
+            <li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</footer>
 
 
 <script type="application/ld+json">
