@@ -3,6 +3,7 @@ sass_cache
 .idea
 .DS_store
 npm-debug.log
+.DS_Store
 .env
 !.env.example
 
@@ -16,5 +17,6 @@ npm-debug.log
 /public/blog/wp-includes
 /public/blog/license.txt
 /public/blog/composer.json
+!/public/blog/wp-content/*
 !/public/blog/wp-content/**/*.php
 !/public/blog/wp-config.php
