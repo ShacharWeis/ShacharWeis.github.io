@@ -8,23 +8,13 @@
         "respect/validation": "^1.1",
         "mailgun/mailgun-php": "^2.3",
         "php-http/guzzle6-adapter": "^1.1",
-        "php-http/message": "^1.6"
+        "php-http/message": "^1.6",
+        "johnpbloch/wordpress": "^4.9"
     },
     "config": {
       "vendor-dir": "public/vendor"
     },
     "extra": {
-        "wordpress-install-dir": "public/blog/app",
-        "installer-paths": {
-            "public/blog/plugins/{$name}/": [
-                "type:wordpress-plugin"
-            ],
-            "public/blog/themes/{$name}/": [
-                "type:wordpress-theme"
-            ],
-            "public/blog/plugins/required/{$name}/": [
-                "type:wordpress-muplugin"
-            ]
-        }
+        "wordpress-install-dir": "public/blog"
     }
 }
