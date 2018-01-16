@@ -3,6 +3,8 @@ sass_cache
 .idea
 .DS_store
 npm-debug.log
+.env
+!.env.example
 
 /public/assets
 /public/**/*.php
