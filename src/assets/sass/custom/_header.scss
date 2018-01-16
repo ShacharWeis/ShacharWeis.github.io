@@ -40,6 +40,7 @@ $headerHeight: 3rem;
     margin-bottom: -(_size(wrapper-edges, medium));
     position: relative;
     margin-top: 3rem;
+    overflow: hidden;
     img {
         position: absolute;
         top: 50%;
@@ -53,4 +54,11 @@ $headerHeight: 3rem;
 #page-wrapper {
 
     margin-top: -$headerHeight;
+}
+
+.logged-in {
+    margin-top: 2rem;
+    #mainHeader {
+        top: 2rem;
+    }
 }
