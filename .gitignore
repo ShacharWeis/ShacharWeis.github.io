@@ -8,4 +8,4 @@ npm-debug.log
 /public/**/*.php
 !/public/app/*.php
 /public/**/*.html
-/public/app/vendor
+/public/vendor
