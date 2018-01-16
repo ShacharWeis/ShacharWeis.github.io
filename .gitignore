@@ -9,6 +9,10 @@ npm-debug.log
 !/public/app/*.php
 /public/**/*.html
 /public/vendor
-/public/blog
-!/public/blog/wp-content/**/*
+/public/blog/*.php
+/public/blog/wp-admin
+/public/blog/wp-includes
+/public/blog/license.txt
+/public/blog/composer.json
+!/public/blog/wp-content/**/*.php
 !/public/blog/wp-config.php
