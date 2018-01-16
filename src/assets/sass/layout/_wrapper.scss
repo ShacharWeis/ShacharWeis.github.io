@@ -99,7 +99,8 @@
 
 .wrapper {
     background-color: _palette(bg);
-    margin: _size(wrapper-edges, large) 0;
+    margin: (_size(wrapper-edges, medium) - 1) 0;
+    padding-bottom: 1em;
     position: relative;
     @include wrapper-edges-color(_palette(bg));
 
@@ -108,19 +109,19 @@
         background-size: 100% 100%;
         content: '';
         display: block;
-        height: _size(wrapper-edges, large);
+        height: _size(wrapper-edges, medium);
         position: absolute;
         width: 100%;
     }
 
     &:before {
         left: 0;
-        top: (_size(wrapper-edges, large) * -1);
+        top: (_size(wrapper-edges, medium) * -0.99);
     }
 
     &:after {
         @include vendor('transform', 'scaleY(-1)');
-        bottom: (_size(wrapper-edges, large) * -1) + 0.1em;
+        bottom: (_size(wrapper-edges, medium) * -1) + 0.1em;
         left: 0;
     }
 
@@ -135,7 +136,7 @@
     }
 
     .inner {
-        @include padding(3em, 0);
+        @include padding(2em, 0);
         margin: 0 auto;
         width: _size(inner);
     }

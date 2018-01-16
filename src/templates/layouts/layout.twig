@@ -66,14 +66,21 @@
 </head>
 <body>
 
-<header>
+<header id="mainHeader">
 
     <nav>
-
+        <ul>
+            <li><a href="/#wrapper" data-scroll>About</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/the-team">The Team</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#footer" data-scroll>Contact Us</a></li>
+        </ul>
     </nav>
 </header>
 
 <main id="page-wrapper">
+    <div id="heroImage"><img src="{{ imagePath }}/main_small.jpg" /></div>
     <div id="wrapper">
         {% block content %}
 
@@ -81,7 +88,7 @@
     </div>
 </main>
 
-<footer id="footer" class="wrapper alt style4">
+<footer id="footer" class="wrapper {{ seoData['footerDirection'] }} style4">
     <div class="inner">
         <h2 class="major">Contact</h2>
         <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
@@ -106,8 +113,8 @@
         {% endif %}
         <ul class="copyright">
             <li>2018 © Packet39. All rights reserved.</li>
-            <li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/accessibility">Accessibility</a></li>
         </ul>
     </div>
 </footer>

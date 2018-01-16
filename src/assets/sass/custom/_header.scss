@@ -1,0 +1,56 @@
+$headerHeight: 3rem;
+
+#mainHeader {
+    position: fixed;
+    top: 0;
+    z-index:100;
+    background-color: _palette(accent);
+    width: 100%;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    nav {
+        margin: 0 auto;
+        max-width: 55em;
+        padding: 0 0.5em;
+        ul {
+            list-style: none;
+            float: right;
+            padding: 0;
+            margin: 0;
+            li {
+                float: left;
+                padding: 0;
+                a {
+                    display: block;
+                    padding: 0.5rem;
+                    border-bottom: none;
+                    transition: background-color 0.3s ease-in-out;
+                    &:hover {
+                        background-color: _palette(bg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#heroImage {
+    height: 50vw;
+    max-height: 50vh;
+    margin-bottom: -(_size(wrapper-edges, medium));
+    position: relative;
+    margin-top: 3rem;
+    img {
+        position: absolute;
+        top: 50%;
+        min-height: 100%;
+        min-width: 100%;
+        width: auto;
+        transform: translate(0, -50%);
+    }
+}
+
+#page-wrapper {
+
+    margin-top: -$headerHeight;
+}

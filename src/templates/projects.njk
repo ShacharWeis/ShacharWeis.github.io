@@ -1,0 +1,116 @@
+{% set seoData = {
+'pageTitle': 'Projects | Packet39',
+'pageDescription' : 'Discover some of the custom software and hardware solutions developed by Packet39 to suit your needs.',
+'pageURL' : 'http://packet39.com/projects',
+'footerDirection' : ''
+}%}
+
+{% extends "layouts/layout.twig" %}
+
+{% block content %}
+    <section class="wrapper alt style3">
+        <div class="inner">
+            <h1 class="major">Projects</h1>
+            <p>We are a team of professional software developers and academics, working together to provide
+                software & hardware solutions. We thrive in the space between code and the physical world and we
+                develop solutions that sense, manipulate and move around in the environment. </p>
+            <p>
+            <section class="features">
+                <article>
+                    <div class="intrinsicContainer">
+                        <div class="youtubePlayer" data-id="htp0rUHSunw" data-name="Gieger Counter Training"></div>
+                    </div>
+                    <br>
+
+                    <h3 class="major">Gieger Counter - Virtual Reality training</h3>
+                    <p>Training and testing on the usage of a hand-held radiation detector. <br><br>We developed this VR application for the Pickering nuclear power plant. An operator places a virtual radiation source on the table and the trainee has to find it. A mathematical model, in conjuction with a physical simulation, results in a highly accurate and responsive virtual Geiger counter. This test can be conducted in an office or even at home, without expensive equipment and without exposing trainees to a harmful radiation.
+                    </p>
+
+
+                </article>
+
+                <article>
+                    <div class="intrinsicContainer">
+                        <div class="youtubePlayer" data-id="P7X9AR5KecE" data-name="Augmented Reality Business Card"></div>
+                    </div>
+                    <br>
+
+                    <h3 class="major">Augmented Reality Buisness Card</h3>
+                    <p>We spruced up our Packet39 Buisness cards with some Augmented Reality magic. Realtime digital
+                        3D graphics overlay, attached to a physical object. If you want to try it yourself, <a
+                                href="https://www.dropbox.com/s/wdp1tnpkqi83ov1/Packet39.apk?dl=0" title="Augmented Reality Business card App">download
+                            the app</a>
+                        (Android only). You'll need a <a href="{{ imagePath }}/BizCard.png" target="_blank" title="Augmented reality business card image">Packet39
+                            card</a>, print
+                        one if you don't have any.</p>
+
+
+                </article>
+
+
+                <article>
+                    <div class="intrinsicContainer">
+                        <div class="youtubePlayer" data-id="iOc8JQwl8Cc" data-name="Interactive Displays"></div>
+                    </div>
+                    <br>
+
+                    <h3 class="major">Interactive displays</h3>
+                    <p>Demo reel of several interactive displays developed by Packet39 team members. Detection is
+                        done using cameras and thermal sensors. Effects play in a powerful and customizable XNA
+                        framework. Most effects can be stacked and combined. An editor allowed our client to create
+                        unique experiences with their own graphics and media.</p>
+
+
+                </article>
+                <article>
+                    <div class="intrinsicContainer">
+                        <div class="youtubePlayer" data-id="0ND8xQoi4yg" data-name="Laser Cutter / Engraver"></div>
+                    </div>
+                    <br>
+
+                    <h3 class="major">Custom built laser cutter / engraver</h3>
+                    <p>This custom laser engraver can cut paper, vinyl, plastics, foam or thin wood sheets. It can
+                        engrave most non-metal materials. Sporting a 3.8W blue diode laser and a 32bit control
+                        board, it can handle any complex cutting job you throw at it. Built with a bottom-less
+                        design allowing working any surface or part, even parts that are bigger than the unit
+                        itself.</p>
+
+
+                </article>
+
+                <article>
+                    <div class="intrinsicContainer">
+                        <div class="intrinsicWrapper">
+                            <img
+                                    src="{{ imagePath }}/3d_print.jpg"
+                                    alt="High resolution 3D printer example"
+                                    title="High resolution 3D printer example"
+                            />
+                        </div>
+                    </div>
+                    <br>
+
+                    <h3 class="major">High resolution 3D print</h3>
+                    <p>3D printed on our high resolution 3D printer, this model can fit on a penny. The printer was
+                        built in our lab and sports a maximum resolution of 40 micron on the XY axis and 20 on the
+                        Z. Castable resin is also available, for creating metal objects.</p>
+
+                </article>
+
+                <article>
+                    <div class="intrinsicContainer">
+                        <div class="youtubePlayer" data-id="vY0xsmCPbnQ" data-name="Whisper Room"></div>
+                    </div>
+                    <br>
+
+                    <h3 class="major">Whisper Room </h3>
+                    <p>Developed for the audiology department at the University of Western Ontario, this VR application can simulate a wide range of accustic environments. A user is presented with a room that includes several audio sources. The sources can be moved in 3D space and their volume / reach adjusted. This VR setup could potentially replace audio testing rooms, which have dozens of custom built speakers and cost upwards of $100k.</p>
+
+
+                </article>
+
+            </section>
+        </div>
+    </section>
+
+{% endblock %}

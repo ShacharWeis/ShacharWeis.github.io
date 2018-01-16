@@ -197,7 +197,10 @@ gulp.task('template-watch', ['templates'], (done) => {
 gulp.task('browserSync', () => {
     browserSync.init({
         server: {
-            baseDir: './public/'
+            baseDir: './public/',
+            serveStaticOptions: {
+                extensions: ['html']
+            }
         }
     });
 });
