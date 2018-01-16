@@ -10,3 +10,5 @@ RewriteRule . /blog/index.php [L]
 </IfModule>
 
 # END WordPress
+
+
