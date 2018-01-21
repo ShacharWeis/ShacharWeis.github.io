@@ -3,7 +3,7 @@
 {% endif %}
 <!DOCTYPE HTML>
 
-<html lang="EN">
+<html lang="EN" id="html" class="no-js">
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,7 +15,11 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
     <link rel="dns-prefetch" href="https://use.fontawesome.com"/>
     <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
-
+    <script type="text/javascript">
+        document.getElementById('html').classList.toggle('no-js');
+        document.getElementById('html').classList.toggle('js');
+        document.getElementById('html').classList.add('no-fonts');
+    </script>
     <script>
         window.ga = window.ga || function () {
                 (ga.q = ga.q || []).push(arguments);
@@ -153,6 +157,12 @@
     WebFontConfig = {
         google: {
             families: ['Raleway:200,700', 'Source Sans Pro:300,600,300italic,600italic']
+        },
+        active: function() {
+            document.getElementById('html').classList.remove('no-fonts');
+        },
+        inactive: function() {
+            document.getElementById('html').classList.remove('no-fonts');
         }
     };
 

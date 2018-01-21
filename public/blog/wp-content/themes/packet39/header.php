@@ -26,7 +26,6 @@
     <meta name="msapplication-config" content="<?php echo WP_HOME . '/../static/'; ?>favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <style>{{ styleData }}</style>
 </head>
 <body <?php body_class(); ?>>
 

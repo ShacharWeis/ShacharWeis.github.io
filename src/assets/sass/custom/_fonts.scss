@@ -1,0 +1,11 @@
+#html.js {
+    p, a, h1, h2, h3, h4, h5, h6, ul, ol, span, strong, i {
+        transition: opacity 0.1s ease-in-out;
+        opacity:1;
+    }
+    &.no-fonts {
+        p, a, h1, h2, h3, h4, h5, h6, ul, ol, span, strong, i {
+            opacity: 0;
+        }
+    }
+}
