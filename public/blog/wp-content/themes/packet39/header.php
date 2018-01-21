@@ -9,7 +9,7 @@
  * @since Twenty Fifteen 1.0
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> id="html" class="no-js">
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width">
@@ -25,7 +25,11 @@
     <meta name="application-name" content="Packet39">
     <meta name="msapplication-config" content="<?php echo WP_HOME . '/../static/'; ?>favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-
+    <script type="text/javascript">
+        document.getElementById('html').classList.toggle('no-js');
+        document.getElementById('html').classList.toggle('js');
+        document.getElementById('html').classList.add('no-fonts');
+    </script>
 </head>
 <body <?php body_class(); ?>>
 

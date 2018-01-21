@@ -45,6 +45,12 @@
     WebFontConfig = {
         google: {
             families: ['Raleway:200,700', 'Source Sans Pro:300,600,300italic,600italic']
+        },
+        active: function() {
+            document.getElementById('html').classList.remove('no-fonts');
+        },
+        inactive: function() {
+            document.getElementById('html').classList.remove('no-fonts');
         }
     };
 
