@@ -19,7 +19,11 @@ get_header(); ?>
 
 <section class="wrapper style3">
     <div class="inner">
-        <h1 class="major">Blog</h1>
+        <?php if ( is_single() ) : ?>
+           <?php the_title( '<h1 class="major">', '</h1>' ); ?>
+        <?php else : ?>
+            <h1 class="major">Read the Packet<sup>39</sup> Blog</h1>
+        <?php endif; ?>
     </div>
 </section>
         <?php if ( have_posts() ) : ?>
@@ -40,9 +44,8 @@ get_header(); ?>
 
                     <header class="entry-header">
                         <?php
-                            if ( is_single() ) :
-                                the_title( '<h1 class="entry-title">', '</h1>' );
-                            else :
+                            if ( !is_single() ) :
+                                the_post_thumbnail();
                                 the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
                             endif;
                         ?>
@@ -51,10 +54,17 @@ get_header(); ?>
                     <div class="entry-content">
                         <?php
                             /* translators: %s: Name of current post */
-                            the_content( sprintf(
-                                __( 'Continue reading %s', 'twentyfifteen' ),
-                                the_title( '<span class="screen-reader-text">', '</span>', false )
-                            ) );
+                            if ( is_single() ) :
+                                the_content( sprintf(
+                                    __( 'Continue reading %s', 'twentyfifteen' ),
+                                    the_title( '<span class="screen-reader-text">', '</span>', false )
+                                ) );
+                            else :
+                                the_excerpt( sprintf(
+                                    __( 'Continue reading %s', 'twentyfifteen' ),
+                                    the_title( '<span class="screen-reader-text">', '</span>', false )
+                                ) );
+                            endif;
 
                             wp_link_pages( array(
                                 'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
@@ -79,18 +89,19 @@ get_header(); ?>
                 </section>
 
             <?php endwhile; ?>
-            <section class="wrapper">
+            <div class="wrapper">
                 <div class="inner">
 
-            <?php // Previous/next page navigation.
-            the_posts_pagination( array(
-                'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-                'next_text'          => __( 'Next page', 'twentyfifteen' ),
-                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
-            ) ); ?>
+                    <?php // Previous/next page navigation.
+                    the_posts_pagination( array(
+                        'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
+                        'next_text'          => __( 'Next page', 'twentyfifteen' ),
+                        'mid_size' => 4,
+                        'screen_reader_text' => 'Read More Posts'
+                    ) ); ?>
 
+                </div>
             </div>
-            </section>
 
 
         <?php endif; ?>

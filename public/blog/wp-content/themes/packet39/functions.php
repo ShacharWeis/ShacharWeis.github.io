@@ -35,3 +35,13 @@ include 'lib/additions/menus.php';
  * Enqueues styles and scripts.
  */
 include 'lib/additions/assets.php';
+
+
+
+function wpdocs_excerpt_more( $more ) {
+    return sprintf( '<a class="read-more" href="%1$s">%2$s</a>',
+        get_permalink( get_the_ID() ),
+        __( ' ... Continue Reading' )
+    );
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
