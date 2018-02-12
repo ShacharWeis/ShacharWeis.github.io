@@ -39,9 +39,41 @@ include 'lib/additions/assets.php';
 
 
 function wpdocs_excerpt_more( $more ) {
-    return sprintf( '<a class="read-more" href="%1$s">%2$s</a>',
+    return sprintf( ' ... <br><a class="read-more" href="%1$s" title="%3$s Read More">%2$s</a>',
         get_permalink( get_the_ID() ),
-        __( ' ... Continue Reading' )
+        __( 'Continue Reading'),
+        get_the_title( get_the_ID() )
     );
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+// Register Sidebars
+function custom_sidebars() {
+
+    $args = array(
+        'id'            => 'article-sidebar',
+        'name'          => __( 'Article Sidebar', 'text_domain' ),
+        'description'   => __( 'Sidebar for the Article List Page', 'text_domain' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+    );
+    register_sidebar( $args );
+
+}
+add_action( 'widgets_init', 'custom_sidebars' );
+
+/**
+ * Filter for adding wrappers around embedded objects
+ */
+function responsive_embeds( $content ) {
+    $content = preg_replace( "/<object/Si", '<div class="embed-container"><object', $content );
+    $content = preg_replace( "/<\/object>/Si", '</object></div>', $content );
+
+    /**
+     * Added iframe filtering, iframes are bad.
+     */
+    $content = preg_replace( "/<iframe.+?src=\"(.+?)\"/Si", '<div class="embed-container"><iframe src="\1" frameborder="0" allowfullscreen>', $content );
+    $content = preg_replace( "/<\/iframe>/Si", '</iframe></div>', $content );
+    return $content;
+}
+add_filter( 'the_content', 'responsive_embeds' );
