@@ -2,6 +2,7 @@
     "name": "shacharweis/shacharweis.github.io",
     "type": "project",
     "require": {
+        "php": ">=7.0.0",
         "vlucas/phpdotenv": "^2.4",
         "symfony/http-foundation": "^3.3",
         "waavi/sanitizer": "^1.0",
@@ -9,12 +10,31 @@
         "mailgun/mailgun-php": "^2.3",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message": "^1.6",
-        "johnpbloch/wordpress": "^4.9"
+        "johnpbloch/wordpress": "^4.9",
+        "wpackagist-plugin/wordpress-seo": "^6.3",
+        "wpackagist-plugin/wordpress-importer": "^0.6.3"
     },
     "config": {
       "vendor-dir": "public/vendor"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
     "extra": {
-        "wordpress-install-dir": "public/blog/app"
+        "wordpress-install-dir": "public/blog/app",
+        "installer-paths": {
+            "public/blog/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "public/blog/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "public/blog/plugins/required/{$name}/": [
+                "type:wordpress-muplugin"
+            ]
+        }
     }
 }
