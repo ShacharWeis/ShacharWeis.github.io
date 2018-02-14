@@ -15,6 +15,6 @@
       "vendor-dir": "public/vendor"
     },
     "extra": {
-        "wordpress-install-dir": "public/blog"
+        "wordpress-install-dir": "public/blog/app"
     }
 }
