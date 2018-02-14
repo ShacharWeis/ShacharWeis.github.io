@@ -13,6 +13,7 @@ npm-debug.log
 /public/vendor
 
 !/public/blog/*.php
+!/public/blog/themes/**/*.php
 
 /public/blog/app
 
