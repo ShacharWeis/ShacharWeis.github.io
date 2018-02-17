@@ -4,35 +4,48 @@ $headerHeight: 3rem;
     position: fixed;
     top: 0;
     z-index:100;
-    background-color: _palette(accent);
-    width: 100%;
+    background-color: lighten(_palette(accent),5%);
+    width: 10.5rem;
+    height: 100vh;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    display: none;
+    @media all and (min-width: 50rem) and (min-height: 30rem) {
+        display: block;
+    }
     nav {
         margin: 0 auto;
         max-width: 55em;
-        padding: 0 0.5em;
         ul {
             list-style: none;
-            float: right;
             padding: 0;
             margin: 0;
             li {
-                float: left;
-                padding: 0;
+                padding:0;
+                transition: background-color 0.3s ease-in-out;
+                &:hover {
+                    background-color: _palette(bg);
+                }
                 a {
                     display: block;
-                    padding: 0.5rem;
+                    padding: 1rem;
                     border-bottom: none;
-                    transition: background-color 0.3s ease-in-out;
-                    &:hover {
-                        background-color: _palette(bg);
-                    }
+                    text-align: center;
                 }
             }
         }
     }
 }
 
+#homeLink {
+    border-bottom: none;
+    display: block;
+    text-align: center;
+    padding-top: 1rem;
+    img {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
 
 #heroImage {
     height: 50vw;
@@ -54,6 +67,9 @@ $headerHeight: 3rem;
 #page-wrapper {
 
     margin-top: -$headerHeight;
+    @media all and (min-width: 50rem) and (min-height: 30rem) {
+        margin-left: 10.5rem;
+    }
 }
 
 .logged-in {

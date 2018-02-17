@@ -200,6 +200,9 @@ gulp.task('browserSync', () => {
             baseDir: './public/',
             serveStaticOptions: {
                 extensions: ['html']
+            },
+            options: {
+                open: false
             }
         }
     });

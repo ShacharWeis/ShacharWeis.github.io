@@ -7,19 +7,23 @@
 /* Footer */
 
 #footer {
+
     margin-bottom: 0;
+    @media all and (min-width: 50rem) and (min-height: 30rem) {
+        margin-left: 10.5rem;
+    }
     &::after {
         display: none;
     }
     .inner {
-        @include padding(5em, 0);
+        @include padding(5em, 2em);
         padding-bottom: 0;
 
         @include vendor('display', 'flex');
         @include vendor('flex-direction', 'row');
         @include vendor('flex-wrap', 'wrap');
         margin: 0 auto;
-        width: _size(inner);
+        max-width: _size(inner);
 
         > * {
             width: 100%;

@@ -34,7 +34,9 @@
 <body <?php body_class(); ?>>
 
 <header id="mainHeader">
-
+    <a href="/" title="Packet39 Home Link" id="homeLink">
+        <img src="<?php echo WP_HOME . '/..'; ?>/assets/images/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" />
+    </a>
     <nav>
         <ul>
             <li><a href="/#wrapper" data-scroll>About</a></li>
