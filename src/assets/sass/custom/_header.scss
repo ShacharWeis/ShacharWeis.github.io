@@ -59,7 +59,7 @@ html.navOpen {
 }
 
 #heroImage {
-    height: 50vw;
+    height: 22vw;
     max-height: 50vh;
     margin-bottom: -(_size(wrapper-edges, medium));
     position: relative;
@@ -68,6 +68,16 @@ html.navOpen {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+@include breakpoint(large) {
+    #heroImage {
+        height: 30vw;
+    }
+}
+@include breakpoint(small) {
+    #heroImage {
+        height: 50vw
+    }
 }
 
 #page-wrapper {

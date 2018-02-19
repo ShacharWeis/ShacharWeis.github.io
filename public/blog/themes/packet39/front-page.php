@@ -3,7 +3,7 @@
 
 
 <?php if (have_posts()) : ?>
-    <section class="wrapper style2 alt">
+    <section class="wrapper style2">
         <div class="inner" id="blogContainer">
             <div class="blogWrapper">
                 <h1 class="major">Packet<sup>39</sup> Blog</h1>
@@ -34,7 +34,7 @@
             <?php endif; ?>
         </div>
     </section>
-    <nav id="pagination" class="wrapper style3">
+    <nav id="pagination" class="wrapper style3 alt">
         <div class="inner align-center">
 
             <?php // Previous/next page navigation.

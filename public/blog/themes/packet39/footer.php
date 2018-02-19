@@ -1,12 +1,13 @@
 
     </div>
 </main>
-<footer id="footer" class="wrapper alt style4">
+<footer id="footer" class="wrapper style4">
     <div class="inner">
         <ul class="copyright">
             <li>2018 © Packet39. All rights reserved.</li>
             <li><a href="/privacy">Privacy Policy</a></li>
             <li><a href="/accessibility">Accessibility</a></li>
+            <li><a href="/sitemap">Sitemap</a>
         </ul>
     </div>
 </footer>

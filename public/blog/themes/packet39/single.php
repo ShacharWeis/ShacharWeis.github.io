@@ -4,7 +4,7 @@
 
 
     <?php while (have_posts()) : the_post(); ?>
-        <section class="wrapper style2 alt">
+        <section class="wrapper style2">
             <div class="inner" id="blogContainer">
                 <article id="post-<?php the_ID(); ?>" class="blogWrapper">
 
@@ -47,9 +47,6 @@
 
                                 <p class="author-bio">
                                     <?php the_author_meta( 'description' ); ?>
-                                    <a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
-                                        <?php printf( __( 'View all posts by %s', 'twentyfifteen' ), get_the_author() ); ?>
-                                    </a>
                                 </p><!-- .author-bio -->
 
                             </div><!-- .author-description -->
@@ -66,7 +63,7 @@
         </section>
 
     <?php endwhile; ?>
-    <div class="wrapper">
+    <div class="wrapper alt" id="pagination">
         <div class="inner align-center">
 
             <?php previous_post_link('&laquo; %link |', 'Previous Post', 'yes'); ?>
