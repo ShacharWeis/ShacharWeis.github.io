@@ -10,6 +10,7 @@
 
                     <header class="entry-header">
                         <?php the_title('<h1 class="major">', '</h1>'); ?>
+                        <span>- <?php the_date(); ?></span>
                         <?php
                         the_post_thumbnail();
                         ?>
