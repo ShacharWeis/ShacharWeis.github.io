@@ -69,10 +69,18 @@
     <style>{{ styleData }}</style>
 </head>
 <body>
-
+<div id="mobileHeader">
+    <a href="/" title="Packet39 Home Link" id="mobileLogo" aria-hidden="true">
+        <img src="{{ imagePath }}/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
+    </a>
+    <div id="menuToggle">
+        <span>Menu</span>
+    </div>
+</div>
 <header id="mainHeader">
-    <a href="/" title="Packet39 Home Link" id="homeLink">
-        <img src="{{ imagePath }}/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" />
+
+    <a href="/" title="Packet39 Home Link" class="homeLink" aria-hidden="true">
+        <img src="{{ imagePath }}/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
     </a>
     <nav>
         <ul>
@@ -86,7 +94,7 @@
 </header>
 
 <main id="page-wrapper">
-    <div id="heroImage"><img src="{{ imagePath }}/main_small.jpg" alt="Packet39 projected onto a bench of tools and equipment" /></div>
+    <div id="heroImage" style="background-image: url({{ imagePath }}/main_small.jpg)"></div>
     <div id="wrapper">
         {% block content %}
 

@@ -238,18 +238,18 @@
     }
 
     @include breakpoint(small) {
-        margin: _size(wrapper-edges, small) 0;
+        margin: (_size(wrapper-edges, small)-0.2) 0;
 
         &:before, &:after {
             height: _size(wrapper-edges, small);
         }
 
         &:before {
-            top: (_size(wrapper-edges, small) * -1);
+            top: ((_size(wrapper-edges, small) * -1)+0.1);
         }
 
         &:after {
-            bottom: (_size(wrapper-edges, small) * -1);
+            bottom: ((_size(wrapper-edges, small) * -1)+0.1);
             left: 0;
         }
 

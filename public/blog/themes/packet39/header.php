@@ -49,5 +49,5 @@
 </header>
 
 <main id="page-wrapper">
-    <div id="heroImage"><img src="<?php echo WP_HOME . '/../assets/images'; ?>/main_small.jpg" /></div>
+    <div id="heroImage" style="background-image: url(<?php echo WP_HOME . '/../assets/images'; ?>/main_small.jpg)"></div>
     <div id="wrapper">
