@@ -32,10 +32,17 @@
     </script>
 </head>
 <body <?php body_class(); ?>>
-
+<div id="mobileHeader">
+    <a href="/" title="Packet39 Home Link" id="mobileLogo" aria-hidden="true">
+        <img src="<?php echo WP_HOME . '/..'; ?>/assets/images/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
+    </a>
+    <div id="menuToggle">
+        <span>Menu</span>
+    </div>
+</div>
 <header id="mainHeader">
-    <a href="/" title="Packet39 Home Link" id="homeLink">
-        <img src="<?php echo WP_HOME . '/..'; ?>/assets/images/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" />
+    <a href="/" title="Packet39 Home Link" class="homeLink" aria-hidden="true">
+        <img src="<?php echo WP_HOME . '/..'; ?>/assets/images/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
     </a>
     <nav>
         <ul>

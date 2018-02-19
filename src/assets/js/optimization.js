@@ -86,11 +86,15 @@ function mobileMenu() {
     }
 }
 function scrollHeader() {
-    window.addEventListener('scroll', throttle(scrollToggle, 200));
+    window.addEventListener('scroll', throttle(scrollToggle, 25));
 }
 
 function scrollToggle() {
-    return false;
+    const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    if (scrollTop < 150) {
+        return document.documentElement.classList.remove('scrolled');
+    }
+    return  document.documentElement.classList.add('scrolled');
 }
 
 function throttle(fn, wait) {
