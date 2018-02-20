@@ -11,6 +11,7 @@ npm-debug.log
 /public/**/*.php
 /public/**/*.html
 /public/vendor
+/public/static
 
 !/public/app/*.php
 !/public/blog/*.php

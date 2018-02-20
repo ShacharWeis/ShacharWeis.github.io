@@ -53,7 +53,7 @@ const paths = {
         'styles': 'public/assets/css',
         'scripts': 'public/assets/js',
         'images': 'public/assets/images',
-        'static': 'public/',
+        'static': 'public/static',
         'template': 'public/'
     }
 };
@@ -206,10 +206,21 @@ gulp.task('browserSync', () => {
             }
         }
     });
+})
+
+// Static Files
+gulp.task('static', () => {
+    return gulp.src(`${paths.src.static}/**/*`, {dot: true})
+        .pipe(newer(paths.dest.static))
+        .pipe(gulp.dest(paths.dest.static))
+        .on('end', (err) => {
+            emitLog('static', err);
+        });
 });
 
 // Watch Task
 gulp.task('watch', ['browserSync', 'default'], () => {
+    gulp.watch(`${paths.src.static}/**/*`, ['static']);
     gulp.watch(`${paths.src.styles}/**/*.scss`,['template-watch']);
     gulp.watch(`${paths.src.scripts}/**/*.js`,['script-watch']);
     gulp.watch(`${paths.src.template}/**/*`,['template-watch']);
@@ -217,4 +228,4 @@ gulp.task('watch', ['browserSync', 'default'], () => {
 });
 
 // Compilation Task
-gulp.task('default', ['styles', 'scripts', 'images', 'templates']);
+gulp.task('default', ['styles', 'scripts', 'images', 'templates', 'static']);
