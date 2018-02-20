@@ -13,6 +13,11 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
+    <link rel="dns-prefetch" href="https://use.fontawesome.com"/>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
     <link rel="stylesheet" href="<?php echo WP_HOME . '/../assets/css/main.css';?>" />
     <?php wp_head(); ?>
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo WP_HOME . '/../static'; ?>/favicon/apple-touch-icon.png">
@@ -30,6 +35,15 @@
         document.getElementById('html').classList.toggle('js');
         document.getElementById('html').classList.add('no-fonts');
     </script>
+    <script>
+        window.ga = window.ga || function () {
+            (ga.q = ga.q || []).push(arguments);
+        };
+        ga.l = +new Date;
+        ga('create', 'UA-80992066-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 <body <?php body_class(); ?>>
 <div id="mobileHeader">
