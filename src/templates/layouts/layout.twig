@@ -1,0 +1,192 @@
+{% if env === "production" %}
+    {% include '../components/session.php' %}
+{% endif %}
+<!DOCTYPE HTML>
+
+<html lang="EN" id="html" class="no-js">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
+    <link rel="dns-prefetch" href="https://use.fontawesome.com"/>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
+    <script type="text/javascript">
+        document.getElementById('html').classList.toggle('no-js');
+        document.getElementById('html').classList.toggle('js');
+        document.getElementById('html').classList.add('no-fonts');
+    </script>
+    <script>
+        window.ga = window.ga || function () {
+                (ga.q = ga.q || []).push(arguments);
+            };
+        ga.l = +new Date;
+        ga('create', 'UA-80992066-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <title>{{ seoData['pageTitle'] }}</title>
+    <meta name="description"
+          content="{{ seoData['pageDescription'] }}">
+    <link rel="canonical" href="{{ seoData['pageURL'] }}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Packet39">
+
+    <!--FACEBOOK-->
+    <meta property="og:title"
+          content="{{ seoData['pageTitle'] }}">
+    <meta property="og:site_name" content="Packet39">
+    <meta property="og:url" content="{{ seoData['pageURL'] }}">
+    <meta property="og:description"
+          content="{{ seoData['pageDescription'] }}">
+    <meta property="og:image" content="http://packet39.com/assets/images/packet39-social.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Vice_Packet39">
+    <meta name="twitter:title" content="{{ seoData['pageTitle'] }}">
+    <meta name="twitter:description"
+          content="{{ seoData['pageDescription'] }}">
+    <meta name="twitter:image" content="http://packet39.com/assets/images/packet39-social.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ staticPath }}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ staticPath }}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ staticPath }}/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ staticPath }}/favicon/manifest.json">
+    <link rel="mask-icon" href="{{ staticPath }}/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ staticPath }}/favicon/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Packet39">
+    <meta name="application-name" content="Packet39">
+    <meta name="msapplication-config" content="{{ staticPath }}/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>{{ styleData }}</style>
+</head>
+<body>
+<div id="mobileHeader">
+    <a href="/" title="Packet39 Home Link" id="mobileLogo" aria-hidden="true">
+        <img src="{{ imagePath }}/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
+    </a>
+    <div id="menuToggle">
+        <span>Menu</span>
+    </div>
+</div>
+<header id="mainHeader">
+
+    <a href="/" title="Packet39 Home Link" class="homeLink" aria-hidden="true">
+        <img src="{{ imagePath }}/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
+    </a>
+    <nav>
+        <ul>
+            <li><a href="/#wrapper" data-scroll>About</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/the-team">The Team</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="#footer" data-scroll>Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="page-wrapper">
+    <div id="heroImage" style="background-image: url({{ imagePath }}/main_small.jpg)"></div>
+    <div id="wrapper">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</main>
+
+<footer id="footer" class="wrapper {{ seoData['footerDirection'] }} style4">
+    <div class="inner">
+        <h2 class="major">Contact</h2>
+        <p>We will be happy to answer any questions you might have and we'll create a white paper and a proposal
+            for your project, free of charge and without commitment. </p>
+        <ul class="contact">
+            <li class="fa-envelope"><a href="mailto:Vice@Packet39.com" title="Email Packet39">Vice@Packet39.com</a></li>
+            <li class="fa-home">
+                Packet39<br/>
+                39 Raebrook Place<br/>
+                London, ON, Canada<br/>
+                N5X2Z8
+            </li>
+            <li class="fa-phone"><a href="tel:5199026191" title="Call Packet39">519-902-6191</a></li>
+            <li class="fa-twitter"><a href="https://twitter.com/Vice_Packet39" target="_blank" title="Packet39 on Twitter">@Vice_Packet39</a></li>
+            <li class="fa-linkedin"><a href="https://www.linkedin.com/company/packet39" target="_blank" title="Packet39 On LinkedIn">Packet39</a></li>
+        </ul>
+        {% if env === "production" %}
+            {% include '../components/leadForm.php' %}
+        {% else %}
+            <div id="contactForm"></div>
+        {% endif %}
+        <ul class="copyright">
+            <li>2018 © Packet39. All rights reserved.</li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/accessibility">Accessibility</a></li>
+            {#<li><a href="/sitemap">Sitemap</a>#}
+        </ul>
+    </div>
+</footer>
+
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "Organization",
+    "name" : "Packet39",
+    "legalName" : "Packet39",
+    "url": "http://packet39.com/",
+    "logo": "http://packet39.com/assets/images/packet39-social.jpg",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "39 Raebrook Place",
+        "addressLocality": "London",
+        "addressRegion": "ON",
+        "postalCode": "N5X 2Z8",
+        "addressCountry": "Canada"
+    },
+    "contactPoint": {
+    "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+1-519-902-6191",
+        "email": "vice@packet39.com"
+    },
+    "sameAs": [
+        "https://twitter.com/Vice_Packet39",
+        "https://www.linkedin.com/company/packet39"
+    ]
+}
+</script>
+<!-- Scripts -->
+<script id="webfontLoader">
+    WebFontConfig = {
+        google: {
+            families: ['Raleway:200,700', 'Source Sans Pro:300,600,300italic,600italic']
+        },
+        active: function() {
+            document.getElementById('html').classList.remove('no-fonts');
+        },
+        inactive: function() {
+            document.getElementById('html').classList.remove('no-fonts');
+        }
+    };
+
+    (function (d) {
+        var wf = d.createElement('script'), s = d.getElementById('webfontLoader');
+        wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.26/webfontloader.js';
+        wf.async = true;
+        wf.setAttribute('integrity', 'sha256-+6jNhQy77vjBVW8D4TAIG0HBtnzN9YreZOvtii8vrAM=');
+        wf.setAttribute('crossorigin', 'anonymous');
+        s.parentNode.insertBefore(wf, s);
+    })(document);
+</script>
+<script src="https://use.fontawesome.com/29e42826d0.js" async></script>
+<script src="{{ scriptPath }}/optimization.js" async></script>
+<script src="https://embed.small.chat/T2V10NHEKG8AK2A3CK.js" async></script>
+</body>
+</html>

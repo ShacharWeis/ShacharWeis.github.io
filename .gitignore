@@ -3,6 +3,19 @@ sass_cache
 .idea
 .DS_store
 npm-debug.log
+.DS_Store
+.env
+!.env.example
 
-/public/
-/src/static/app/.env
+/public/assets
+/public/**/*.php
+/public/**/*.html
+/public/vendor
+/public/static
+
+!/public/app/*.php
+!/public/blog/*.php
+!/public/blog/themes/**/*.php
+
+/public/blog/app
+

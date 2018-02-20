@@ -9,6 +9,8 @@ document.onreadystatechange = function () {
         initYoutube();
         initSketchfab();
         smoothScroll.init();
+        mobileMenu();
+        scrollHeader();
     }
 };
 
@@ -73,4 +75,34 @@ function sketchFabIframe() {
     iframe.setAttribute('webkitallowfullscreen', 'true');
     iframe.setAttribute('onmousewheel', '');
     this.parentNode.replaceChild(iframe, this);
+}
+
+function mobileMenu() {
+    const menuButton = document.getElementById('menuToggle');
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            document.documentElement.classList.toggle('navOpen');
+        });
+    }
+}
+function scrollHeader() {
+    window.addEventListener('scroll', throttle(scrollToggle, 25));
+}
+
+function scrollToggle() {
+    const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    if (scrollTop < 150) {
+        return document.documentElement.classList.remove('scrolled');
+    }
+    return  document.documentElement.classList.add('scrolled');
+}
+
+function throttle(fn, wait) {
+    let time = Date.now();
+    return function() {
+        if ((time + wait - Date.now()) < 0) {
+            fn();
+            time = Date.now();
+        }
+    };
 }

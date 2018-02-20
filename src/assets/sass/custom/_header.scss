@@ -1,0 +1,95 @@
+$headerHeight: 3rem;
+
+#mainHeader {
+    position: fixed;
+    top: 3.5rem;
+    z-index:100;
+    width: 100vw;
+    transform: translate(100%, 0);
+    transition: transform 0.2s ease-in-out;
+    background-color: lighten(_palette(accent),5%);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    @media all and (min-width: 50rem) and (min-height: 30rem) {
+        transform: translate(0,0);
+        height: 100vh;
+        width: 10.5rem;
+        top: 0;
+    }
+    nav {
+        margin: 0 auto;
+        max-width: 55em;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                padding:0;
+                transition: background-color 0.3s ease-in-out;
+                &:hover {
+                    background-color: _palette(bg);
+                }
+                a {
+                    display: block;
+                    padding: 1rem;
+                    border-bottom: none;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+html.navOpen {
+    #mainHeader {
+        transform: translate(0,0);
+    }
+}
+
+.homeLink {
+    border-bottom: none;
+    display: none;
+    text-align: center;
+    padding-top: 1rem;
+    @media all and (min-width: 50rem) and (min-height: 30rem) {
+        display: block;
+    }
+    img {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+#heroImage {
+    height: 22vw;
+    max-height: 50vh;
+    margin-bottom: -(_size(wrapper-edges, medium));
+    position: relative;
+    margin-top: 3rem;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@include breakpoint(large) {
+    #heroImage {
+        height: 30vw;
+    }
+}
+@include breakpoint(small) {
+    #heroImage {
+        height: 50vw
+    }
+}
+
+#page-wrapper {
+    margin-top: -$headerHeight;
+    @media all and (min-width: 50rem) and (min-height: 30rem) {
+        margin-left: 10.5rem;
+    }
+}
+
+.logged-in {
+    margin-top: 2rem;
+    #mainHeader {
+        top: 2rem;
+    }
+}

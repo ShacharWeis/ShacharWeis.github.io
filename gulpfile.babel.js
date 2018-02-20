@@ -9,6 +9,8 @@ import gulp from 'gulp';
 // Other Tools
 import notifier from 'node-notifier';
 import newer from 'gulp-newer';
+import {create as bsCreate} from 'browser-sync';
+const browserSync = bsCreate();
 
 // Style Processing
 import sass from 'gulp-sass';
@@ -51,7 +53,7 @@ const paths = {
         'styles': 'public/assets/css',
         'scripts': 'public/assets/js',
         'images': 'public/assets/images',
-        'static': 'public/',
+        'static': 'public/static',
         'template': 'public/'
     }
 };
@@ -149,6 +151,63 @@ gulp.task('images', () => {
         });
 });
 
+// Templates Task
+gulp.task('templates',['styles'], () => {
+    let extension = '.php';
+    if (env === 'development') {
+        extension = '.html';
+    }
+    const styleData = fs.readFileSync('./public/assets/css/main.css', 'utf-8');
+    return gulp.src(`${paths.src.template}/**/*.njk`)
+        .pipe(nunjucksRender({
+            path: [paths.src.template],
+            data: {
+                styleData: styleData,
+                stylePath: './assets/css',
+                scriptPath: './assets/js',
+                imagePath: './assets/images',
+                staticPath: './static',
+                composerPath: './app',
+                env: env
+            },
+            envOptions: {
+                autoescape: false,
+                trimBlocks: true,
+                lstripBlocks: true
+            },
+            ext: extension
+        }))
+        .pipe(env !== 'development' ? htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}) : buffer())
+        .pipe(gulp.dest(paths.dest.template))
+        .on('end', (err) => {
+            emitLog('template', err);
+        });
+});
+
+gulp.task('script-watch', ['scripts'], (done) => {
+    browserSync.reload();
+    done();
+});
+
+gulp.task('template-watch', ['templates'], (done) => {
+    browserSync.reload();
+    done();
+});
+
+gulp.task('browserSync', () => {
+    browserSync.init({
+        server: {
+            baseDir: './public/',
+            serveStaticOptions: {
+                extensions: ['html']
+            },
+            options: {
+                open: false
+            }
+        }
+    });
+})
+
 // Static Files
 gulp.task('static', () => {
     return gulp.src(`${paths.src.static}/**/*`, {dot: true})
@@ -159,33 +218,12 @@ gulp.task('static', () => {
         });
 });
 
-// Templates Task
-gulp.task('templates', () => {
-    return gulp.src(`${paths.src.template}/**/*.html`)
-        .pipe(nunjucksRender({
-            path: [paths.src.template],
-            data: {
-                stylePath: './assets/css',
-                scriptPath: './assets/js',
-                imagePath: './assets/images',
-                staticPath: './static',
-                composerPath: './app'
-            },
-            ext: '.php'
-        }))
-        // .pipe(htmlmin({collapseWhitespace: true, minifyJS: true, minifyCSS: true}))
-        .pipe(gulp.dest(paths.dest.template))
-        .on('end', (err) => {
-            emitLog('template', err);
-        });
-});
-
 // Watch Task
-gulp.task('watch', ['default'], () => {
-    gulp.watch(`${paths.src.static}/**/*`,['static']);
-    gulp.watch(`${paths.src.styles}/**/*.scss`,['styles']);
-    gulp.watch(`${paths.src.scripts}/**/*.js`,['scripts']);
-    gulp.watch(`${paths.src.template}/**/*`,['templates']);
+gulp.task('watch', ['browserSync', 'default'], () => {
+    gulp.watch(`${paths.src.static}/**/*`, ['static']);
+    gulp.watch(`${paths.src.styles}/**/*.scss`,['template-watch']);
+    gulp.watch(`${paths.src.scripts}/**/*.js`,['script-watch']);
+    gulp.watch(`${paths.src.template}/**/*`,['template-watch']);
     gulp.watch(`${paths.src.images}/**/*.+(jpg|jpeg|gif|png|svg)`,['images']);
 });
 
