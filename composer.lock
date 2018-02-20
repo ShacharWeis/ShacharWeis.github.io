@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b64773de297807013c43eb2e92f0fec4",
+    "content-hash": "ca5f51a80e0392566868431dfbaeb9e9",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1935,6 +1935,26 @@
             "time": "2018-01-29T19:49:41+00:00"
         },
         {
+            "name": "wpackagist-plugin/akismet",
+            "version": "4.0.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/akismet/",
+                "reference": "tags/4.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/akismet.4.0.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/akismet/"
+        },
+        {
             "name": "wpackagist-plugin/jetpack",
             "version": "5.8",
             "source": {
@@ -1945,7 +1965,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/jetpack.5.8.zip",
-                "reference": null,
+                "reference": "tags/5.8",
                 "shasum": null
             },
             "require": {

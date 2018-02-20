@@ -53,7 +53,16 @@
                             </div><!-- .author-description -->
 
                     </footer>
+                    <aside>
+                        <?php
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if ( comments_open() || get_comments_number() ) :
+                            echo '<hr/>';
+                            comments_template();
+                        endif;
 
+                        ?>
+                    </aside>
                 </article><!-- #post-## -->
                 <?php if ( is_active_sidebar( 'article-sidebar' ) ) : ?>
                     <aside class="sidebarWrapper">

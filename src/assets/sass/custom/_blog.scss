@@ -107,3 +107,45 @@
         }
     }
 }
+#comments ol.comment-list {
+    padding-left: 0;
+    list-style: none;
+    .pingback {
+        display: none;
+    }
+    .comment {
+        margin-bottom: 1rem;
+        &:nth-child(even) {
+            background-color: _palette(bg);
+        }
+
+        &:nth-child(odd) {
+            background-color: saturate(_palette(bg),10%);
+        }
+        .comment-meta + p {
+            clear: both;
+        }
+        .children {
+            list-style: none;
+            padding-left: 0;
+            li {
+                padding-left: 0.5rem;
+                border-left: 3px solid white;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &.parent {
+            padding-bottom: 0.5rem;
+        }
+    }
+    .avatar {
+        max-width: 3.5rem !important;
+        float: left;
+        margin: 0 1rem 1rem 0;
+    }
+}
