@@ -7,7 +7,7 @@
             <li>2018 © Packet39. All rights reserved.</li>
             <li><a href="/privacy">Privacy Policy</a></li>
             <li><a href="/accessibility">Accessibility</a></li>
-            <li><a href="/sitemap">Sitemap</a>
+<!--            <li><a href="/sitemap">Sitemap</a>-->
         </ul>
     </div>
 </footer>
@@ -65,7 +65,7 @@
     })(document);
 </script>
 <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
-<script src="{{ scriptPath }}/optimization.js" async></script>
+<script src="<?php echo WP_HOME; ?>/../assets/js/optimization.js" async></script>
 <script src="https://embed.small.chat/T2V10NHEKG8AK2A3CK.js" async></script>
 <?php wp_footer(); ?>
 </body>
