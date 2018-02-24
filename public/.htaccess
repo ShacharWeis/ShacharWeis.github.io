@@ -1,3 +1,7 @@
+<IfModule mod_setenvif.c>
+SetEnvIf X-Forwarded-Proto "^https$" HTTPS
+</IfModule>
+
 <IfModule mod_headers.c>
 Header set Content-Security-Policy "default-src 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https: http://fonts.googleapis.com; img-src 'self' https: data: http://i.imgur.com http://*.gravatar.com; font-src 'self' data: https: http://fonts.gstatic.com; connect-src 'self' https://ipinfo.io https://6cx8vyk5ag.execute-api.us-west-2.amazonaws.com wss://s-usc1c-nss-222.firebaseio.com wss://slackchatv1.firebaseio.com; media-src 'self'; object-src 'self'; child-src 'self' https:; frame-ancestors 'self'; form-action 'self';"
 </IfModule>
@@ -31,10 +35,13 @@ RewriteEngine On
 RewriteBase /
 
 RewriteCond %{HTTP_HOST} ^(www\.)?callmevice\.com [NC]
-RewriteRule ^(.*)$ http://packet39.com/$1 [R=301,NC,L]
+RewriteRule ^(.*)$ https://packet39.com/$1 [R=301,NC,L]
 
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
@@ -57,5 +64,3 @@ RewriteRule ^2012/?(.*)$ /blog/$1 [L,R=301,NC]
 RewriteRule ^2011/?(.*)$ /blog/$1 [L,R=301,NC]
 
 </IfModule>
-
-
