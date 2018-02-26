@@ -61,19 +61,3 @@ function custom_sidebars() {
 
 }
 add_action( 'widgets_init', 'custom_sidebars' );
-
-/**
- * Filter for adding wrappers around embedded objects
- */
-function responsive_embeds( $content ) {
-    $content = preg_replace( "/<object/Si", '<div class="embed-container"><object', $content );
-    $content = preg_replace( "/<\/object>/Si", '</object></div>', $content );
-
-    /**
-     * Added iframe filtering, iframes are bad.
-     */
-    $content = preg_replace( "/<iframe.+?src=\"(.+?)\"/Si", '<div class="embed-container"><iframe src="\1" frameborder="0" allowfullscreen>', $content );
-    $content = preg_replace( "/<\/iframe>/Si", '</iframe></div>', $content );
-    return $content;
-}
-add_filter( 'the_content', 'responsive_embeds' );
