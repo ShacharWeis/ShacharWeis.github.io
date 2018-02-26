@@ -29,9 +29,7 @@
     article {
         width: 100%;
         img {
-            max-width: 100%;
-            width: 100% !important;
-            height: auto;
+            max-width: 100% !important;
         }
         a {
             overflow-wrap: break-word;
@@ -45,7 +43,7 @@
         margin-top: 1.5rem;
         display: inline-block;
     }
-    .embed-container {
+    .embed-container, .embed-youtube, .sketchfab-embed-wrapper {
         position: relative;
         width: 100%;
         height: 0;
@@ -56,6 +54,14 @@
             left: 0;
             width: 100%;
             height: 100%;
+        }
+    }
+    .sketchfab-embed-wrapper {
+        margin-bottom: 3rem;
+        > p {
+            position: absolute;
+            bottom: -0.5rem;
+            transform: translate(0,100%);
         }
     }
     .author-avatar img {
