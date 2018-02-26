@@ -61,3 +61,5 @@ function custom_sidebars() {
 
 }
 add_action( 'widgets_init', 'custom_sidebars' );
+
+add_theme_support( 'title-tag' );
