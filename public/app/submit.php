@@ -41,7 +41,7 @@ class Submit
 
         $this->request = Request::createFromGlobals();
 
-        $this->dotenv = new Dotenv(__DIR__);
+        $this->dotenv = new Dotenv(dirname(__DIR__));
         $this->dotenv->load();
 
         $this->setup();
