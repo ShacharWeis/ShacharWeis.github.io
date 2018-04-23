@@ -12,9 +12,9 @@
         "php-http/message": "^1.6",
         "johnpbloch/wordpress": "^4.9",
         "wpackagist-plugin/wordpress-seo": "^6.3",
-        "wpackagist-plugin/wordpress-importer": "^0.6.3",
         "wpackagist-plugin/jetpack": "^5.8",
-        "wpackagist-plugin/akismet": "^4.0"
+        "wpackagist-plugin/akismet": "^4.0",
+        "wpackagist-plugin/disqus-comment-system": "^3.0"
     },
     "config": {
       "vendor-dir": "public/vendor"

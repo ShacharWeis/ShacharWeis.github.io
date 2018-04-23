@@ -12,10 +12,10 @@
 }
 #blogContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     .blogWrapper {
-        width: 100%;
+        width: 60%;
         flex: 3 1 60%;
         @media (min-width: 50.6875rem) {
             padding-right: 2em;
