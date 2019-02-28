@@ -110,8 +110,14 @@
     margin-bottom: 0.5rem;
 }
 
-.entry-content > div {
+.entry-content > * {
     max-width: 100% !important;
+}
+
+#disqus_thread {
+    [data-role="ad=container"] {
+        display: none !important;
+    }
 }
 
 .widget_recent_entries {

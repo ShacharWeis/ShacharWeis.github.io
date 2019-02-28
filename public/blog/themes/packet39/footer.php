@@ -63,6 +63,17 @@
         wf.setAttribute('crossorigin', 'anonymous');
         s.parentNode.insertBefore(wf, s);
     })(document);
+
+    (function($){
+        setInterval(() => {
+            $.each($('iframe'), (arr,x) => {
+                var src = $(x).attr('src');
+                if (src && src.match(/(ads-iframe)|(disqusads)/gi)) {
+                    $(x).remove();
+                }
+            });
+        }, 300);
+    })(jQuery);
 </script>
 <script src="https://use.fontawesome.com/29e42826d0.js" async></script>
 <script src="<?php echo WP_HOME; ?>/../assets/js/optimization.js" async></script>
