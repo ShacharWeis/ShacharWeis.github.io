@@ -60,6 +60,10 @@
     </script>
 </head>
 <body <?php body_class(); ?>>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGPGWWZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 <div id="mobileHeader">
     <a href="/" title="Packet39 Home Link" id="mobileLogo" aria-hidden="true">
         <img src="<?php echo WP_HOME . '/..'; ?>/assets/images/monochrome-logo.png" alt="Packet39 Monochrome Box Logo" aria-hidden="true" />
