@@ -17,7 +17,7 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
     <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
     <link rel="dns-prefetch" href="https://use.fontawesome.com"/>
-    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
     <link rel="stylesheet" href="<?php echo WP_HOME . '/../assets/css/main.css';?>" />
     <?php wp_head(); ?>
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo WP_HOME . '/../static'; ?>/favicon/apple-touch-icon.png">
@@ -29,34 +29,18 @@
     <meta name="apple-mobile-web-app-title" content="Packet39">
     <meta name="application-name" content="Packet39">
     <meta name="msapplication-config" content="<?php echo WP_HOME . '/../static/'; ?>favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <script type="text/javascript">
-        document.getElementById('html').classList.toggle('no-js');
-        document.getElementById('html').classList.toggle('js');
-        document.getElementById('html').classList.add('no-fonts');
-    </script>
-    <!-- Google Tag Manager -->
+        <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MGPGWWZ');</script>
     <!-- End Google Tag Manager -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'AW-761297127');
-    </script>
-    <script>
-        gtag('event', 'page_view', {
-            'send_to': 'AW-761297127',
-            'dynx_itemid': 'replace with value',
-            'dynx_itemid2': 'replace with value',
-            'dynx_pagetype': 'replace with value',
-            'dynx_totalvalue': 'replace with value'
-        });
+    <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript">
+        document.getElementById('html').classList.toggle('no-js');
+        document.getElementById('html').classList.toggle('js');
+        document.getElementById('html').classList.add('no-fonts');
     </script>
 </head>
 <body <?php body_class(); ?>>
